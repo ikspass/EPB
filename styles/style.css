@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --black: #323232;
+    --grey: #C2C2C2;
+    --accent: #FDA941;
+}
+body{
+    font-family: 'Roboto';
+    color: var(--black);
+}
+
+.heading{
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 56px;
+    text-transform: uppercase;
+}
+.small-text{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.normal-text{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.big-text{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.small{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0 calc((100% - 1200px) / 2);
+}
+
+/* HEADER */
+
+.header{
+    display: flex;
+    /* width: 1200px;
+    margin: 0 auto 0 auto; */
+}
+
+.logo{
+    border-radius: 0px 0px 10px 10px;
+}
+.navigation{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.navigation-row{
+    display: flex;
+    margin-top: 30px;
+    justify-content: end;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.separator{
+    width: 1px;
+    height: 17px;
+    background: var(--grey);
+    border-radius: 10px;
+}
+
+/* SLIDER */
+
+.slide{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
+.line{
+    background: var(--accent);
+    width: 195px;
+    height: 4px;
+    border-radius: 100px;
+    margin: 20px 0 40px 0;
+}
+
+.slide-text{
+    width: 320px;
+}
+
+.slide-image{
+    width: 800px;
+    height: 500px;
+    background: var(--grey);
+    border-radius: 10px;
+}
+
+/* BAKERY MENU */
+
+.bakery-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bakery-menu-list{
+    display: flex;
+    gap: 30px;
+    align-self: center;
+}
+
+.bakery-menu-item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.bakery-menu-item-image{
+    width: 380px;
+    height: 370px;
+}
+
+.bakery-menu-item-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+/* CONTACTS */
+
+.contacts{
+    padding: 150px 0 150px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 180px;
+    text-align: center;
+}
+
+.contacts-title{
+    font-size: 144px;
+    line-height: 169px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.question-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
