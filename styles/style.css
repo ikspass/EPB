@@ -8,6 +8,13 @@
     --grey: #C2C2C2;
     --accent: #FDA941;
 }
+
+a:link,
+a:visited,
+a:active{
+    text-decoration: none;
+}
+
 body{
     font-family: 'Roboto';
     color: var(--black);
@@ -37,6 +44,10 @@ body{
     line-height: 21px;
 }
 
+.accent{
+    color: var(--accent);
+}
+
 .bold{
     font-weight: 700;
 }
@@ -58,8 +69,6 @@ body{
 
 .header{
     display: flex;
-    /* width: 1200px;
-    margin: 0 auto 0 auto; */
 }
 
 .logo{
@@ -81,12 +90,26 @@ body{
 .nav-item{
     display: flex;
     align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.nav-item:hover,
+.nav-item a:hover{
+    color: var(--accent);
+}
+
+.nav-item a,
+a.nav-item{
+    color: var(--black);
+    transition: 0.5s;
 }
 
 .icon{
     display: flex;
     margin-right: 10px;
     align-items: center;
+    cursor: auto;
 }
 
 .separator{
@@ -94,6 +117,7 @@ body{
     height: 17px;
     background: var(--grey);
     border-radius: 10px;
+    cursor: auto;
 }
 
 /* SLIDER */
@@ -145,15 +169,24 @@ body{
 .bakery-menu-item-image{
     width: 380px;
     height: 370px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 .bakery-menu-item-image img{
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 10px;
+    transition: 1.2s;
 }
+
+.bakery-menu-item-image img:hover{
+    scale: 1.1;
+}
+
 
 /* CONTACTS */
 
@@ -169,7 +202,6 @@ body{
 .contacts-title{
     font-size: 144px;
     line-height: 169px;
-    color: var(--accent);
     text-transform: uppercase;
 }
 
