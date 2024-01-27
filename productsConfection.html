@@ -3,10 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Peasy | Меню</title>
+    <title>Easy Peasy | Кондитерские изделия</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="main-page">
+    <div class="backdrop">
+        <div class="product-modal-window">
+            <div class="product-modal-window-image"></div>
+            <div class="product-modal-window-info">
+                <div>
+                    <div class="product-modal-window-description">
+                        <div class="big-text bold">Мягкие французские рулетики</div>
+                        <div class="small-text grey">Французы называют их pain aux raisins, а мы бы назвали их просто — улитка с изюмом . И по моему скромному мнению, эта простая улитка из слоеного теста</div>
+                    
+    
+                    <div class="quantity">
+                        <div class="quantity-tool">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="4" viewBox="0 0 16 4" fill="none">
+                                <path d="M0 2.00002C0 1.41091 0.477563 0.93335 1.06667 0.93335H14.9333C15.5224 0.93335 16 1.41091 16 2.00002C16 2.58912 15.5224 3.06668 14.9333 3.06668H1.06667C0.477563 3.06668 0 2.58912 0 2.00002Z" fill="#323232"/>
+                            </svg>
+                        </div>
+                        <div class="big-text quantity-info">
+                            20 шт
+                        </div>
+                        <div class="quantity-tool">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.93333 14.9333C6.93333 15.5224 7.4109 16 8 16C8.5891 16 9.06667 15.5224 9.06667 14.9333V9.06667H14.9333C15.5224 9.06667 16 8.5891 16 8C16 7.4109 15.5224 6.93333 14.9333 6.93333H9.06667V1.06667C9.06667 0.477563 8.5891 0 8 0C7.4109 0 6.93333 0.477563 6.93333 1.06667V6.93333H1.06667C0.477563 6.93333 0 7.4109 0 8C0 8.5891 0.477563 9.06667 1.06667 9.06667H6.93333V14.9333Z" fill="#323232"/>
+                            </svg>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+
+                <div class="product-modal-window-options">
+
+                    <div class="product-modal-window-total big-text bold">
+                        <div>Сумма:</div>
+                        <div>000,00 руб</div>
+                    </div>
+
+                    <button class="product-modal-window-add big-text bold">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <div class="logo-container">
             <img class="logo" src="styles/images/logo.jpeg" width="150px" alt="logo">
@@ -59,29 +100,26 @@
     </header>
 
     <div class="path">
-        <div class="small-text accent bold">Easy Peasy</div>
+        <a href="index.html" class="small-text accent bold">Easy Peasy</a>
         <div class="square"></div>
-        <div class="small-text grey bold">Меню</div>
+        <a href="bakeryMenu.html" class="small-text accent bold">Меню</a>
+        <div class="square"></div>
+        <div class="small-text grey bold">Кондитерские изделия</div>
     </div>
 
-    <div class="bakery-menu">
-        <div class="heading">наше меню</div>
+    <div>
+        <div class="heading" id="products-page-title">кондитерские изделия</div>
         <div class="line"></div>
-        <div class="bakery-menu-list">
-            <div class="bakery-menu-item">
-                <a href="productsConfection.html" class="bakery-menu-item-image">
-                    <img src="styles/images/confection.jpg" alt="Confection">
-                </a>
-                <div class="bakery-menu-item-name big-text bold">Кондитерские изделия</div>
-            </div>
-            <div class="bakery-menu-item">
-                <a href="productsBakery.html" class="bakery-menu-item-image">
-                    <img src="styles/images/bakery.jpg" alt="Bakery">
-                </a>
-                <div class="bakery-menu-item-name big-text bold">Выпечка</div>
-            </div>
+        <div class="products-menu-filter small-text bold">
+            <button class="normal-main-buttons active">Все</button>
+            <button class="normal-main-buttons">Десерты</button>
+            <button class="normal-main-buttons">Пирожные</button>
+            <button class="normal-main-buttons">Макароны</button>
+            <button class="normal-main-buttons">Тарталетки</button>
         </div>
     </div>
+
+    <div class="products-list" id="products-list"></div>
 
     <div class="contacts">
         <a target="_blank" href="https://www.instagram.com/easy_bakery_minsk/" class="contacts-title accent">instagram</a>
@@ -90,5 +128,6 @@
             <div class="big-text">easypeasybakery@yandex.by</div>
         </div>
     </div>
+    <script src="scripts/productsMenu.js"></script>
 </body>
 </html>

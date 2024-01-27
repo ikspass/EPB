@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="main-page">
+    <div class="backdrop" id="backdrop"></div>
+    <div class="modal-window-container">
+        <div class="vacancies-modal-window" id="vacancies-modal-window">
+            <div class="big-text">Вопросы по трудоустройству и сотрудничеству -</div>
+            <div class="big-text accent">easypeasybakery@yandex.by</div>
+        </div>
+
+        <div class="vacancies-modal-window" id="delivery-modal-window">
+            <div class="big-text">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
+        </div>
+
+        <button class="close-modal-window" id="close-modal-window">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M1 11L11 1M1 1L11 11" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
     <header class="header">
         <div class="logo-container">
             <img class="logo" src="styles/images/logo.jpeg" width="150px" alt="logo">
@@ -15,8 +33,8 @@
             <div class="navigation-row">
                 <a href="bakeryMenu.html" class="nav-item">Меню</a>
                 <a href="aboutCompany.html" class="nav-item">О компании</a>
-                <div class="nav-item">Вакансии</div>
-                <div class="nav-item">Доставка</div>
+                <div class="nav-item" id="vacancies">Вакансии</div>
+                <div class="nav-item" id="delivery">Доставка</div>
             </div>
             <div class="navigation-row">
                 <div class="nav-item">
@@ -34,7 +52,7 @@
                             <path d="M1 11.7059H17V15H1V11.7059ZM1 11.7059H17V6.40673C17 6.40349 16.9974 6.40086 16.9941 6.40086H1.00587C1.00263 6.40086 1 6.40349 1 6.40673V11.7059ZM12.4676 1C13.4366 1 14.222 1.7835 14.222 2.75L14.216 2.613L14.2521 2.60333C15.7897 3.12298 16.9117 4.52702 16.995 6.20058L16.9992 6.38933L17 6.395C17 6.39824 16.9974 6.40086 16.9941 6.40086H1.03964C1.0364 6.40086 1.03378 6.39824 1.03378 6.395C1.03378 6.39241 1.03547 6.39013 1.03794 6.38938L8.57895 4.10776L10.874 3.48283C10.7708 3.25991 10.7132 3.01166 10.7132 2.75C10.7132 1.7835 11.4987 1 12.4676 1ZM12.4676 4.5C13.4366 4.5 14.222 3.7165 14.222 2.75C14.222 1.7835 13.4366 1 12.4676 1C11.4987 1 10.7132 1.7835 10.7132 2.75C10.7132 3.7165 11.4987 4.5 12.4676 4.5Z" stroke="black" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <a href="productsMenu.html" id="confection-link">Кондитерские изделия</a>
+                    <a href="productsConfection.html">Кондитерские изделия</a>
                 </div>
                 <div class="separator nav-item"></div>
                 <div class="nav-item">
@@ -43,7 +61,7 @@
                             <path d="M5 4C5.63543 2.9188 6.59762 1.89981 7.81446 1.00147L7.94305 1.0006L9 1M6.44309 1.18855C6.54766 1.16739 6.65307 1.14819 6.75925 1.13099C9.57013 2.31706 11.7482 4.01919 12.8872 5.91474M11 1L11.4793 1.00053C11.7328 1.00052 11.9838 1.01218 12.2313 1.03496C13.4267 1.92545 14.3726 2.9324 15 4M7.46018 5.91474C8.575 4.06583 10.685 2.40155 13.4089 1.22311C13.5288 1.24836 13.6477 1.2765 13.7652 1.30714M18.4264 6.24143L18.652 7.11366C19.135 8.98196 18.0121 10.8881 16.1438 11.3712C15.8581 11.4451 15.5642 11.4825 15.2692 11.4825L4.4942 11.4827C2.56446 11.4827 1 9.91846 1 7.98871C1 7.69358 1.03738 7.39964 1.11126 7.11391L1.33675 6.24185C2.1346 3.15627 4.91824 1.0008 8.10531 1.00063H11.658C14.845 1.00063 17.6286 3.15593 18.4264 6.24143Z" stroke="black" stroke-width="1.00088" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <a href="productsMenu.html" id="bakery-link">Выпечка</a>
+                    <a href="productsBakery.html">Выпечка</a>
                 </div>
                 <div class="separator nav-item"></div>
                 <div class="nav-item">
@@ -76,13 +94,13 @@
         <div class="line"></div>
         <div class="bakery-menu-list">
             <div class="bakery-menu-item">
-                <a href="bakeryMenu.html" class="bakery-menu-item-image">
+                <a href="productsConfection.html" class="bakery-menu-item-image">
                     <img src="styles/images/confection.jpg" alt="Confection">
                 </a>
                 <div class="bakery-menu-item-name big-text bold">Кондитерские изделия</div>
             </div>
             <div class="bakery-menu-item">
-                <a href="bakeryMenu.html" class="bakery-menu-item-image">
+                <a href="productsBakery.html" class="bakery-menu-item-image">
                     <img src="styles/images/bakery.jpg" alt="Bakery">
                 </a>
                 <div class="bakery-menu-item-name big-text bold">Выпечка</div>

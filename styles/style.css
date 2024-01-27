@@ -16,6 +16,46 @@ a:visited,
 a:active{
     text-decoration: none;
 }
+button{
+    color: var(--black);
+}
+
+.normal-main-buttons,
+.modal-main-buttons{
+    border: 2px solid var(--accent);
+    background: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 5px;
+    width:  fit-content;
+    transition: 1.2s;
+}
+
+.normal-main-buttons.active{
+    background: var(--accent);
+}
+
+.normal-main-buttons:hover,
+.modal-main-buttons:hover{
+    border-color: var(--black);
+}
+
+.normal-main-buttons.active:hover{
+    border-color: var(--accent);
+}
+
+.normal-main-buttons{
+    height: 30px;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 0 18px;
+}
+.modal-main-buttons{
+    height: 40px;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 0 22px;
+}
 
 body{
     font-family: 'Roboto';
@@ -304,50 +344,12 @@ a.nav-item{
     justify-content: center;
 }
 
-.basket-item-delete{
-    width: 116px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 5px;
-    border: 2px solid var(--accent);
-    cursor: pointer;
-    background: transparent;
-}
-
-.basket-checkout{
-    width: 186px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 5px;
-    border: 2px solid var(--accent);
-    cursor: pointer;
-    background: transparent;
-}
-
 /* PRODUCTS MENU */
 
 .products-menu-filter{
     display: flex;
     gap: 16px;
 }
-
-.products-menu-filter-item{
-    padding: 7px 18px;
-    border: 2px solid var(--accent);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 1.2s;
-}
-
-.products-menu-filter-item:hover{
-    border-color: var(--black);
-}
-
-
-.products-menu-filter-item.active{
-    background: var(--accent);
-}
-
 
 .products-list{
     display: flex;
@@ -390,14 +392,6 @@ a.nav-item{
     align-items: center;
 }
 
-.add-to-basket{
-    padding: 7px 18px;
-    border: 2px solid var(--accent);
-    border-radius: 5px;
-    background: transparent;
-    cursor: pointer;
-}
-
 .products-separator{
     width: 380px;
     height: 1px;
@@ -409,36 +403,40 @@ a.nav-item{
 
 .backdrop{
     background: rgba(166, 166, 166, 0.50);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     display: none;
 }
+
 .product-modal-window{
-    width: 900px;
+    padding: 20px;
     flex-shrink: 0;
     background: var(--white);
-    position: absolute;
     border-radius: 10px;
-    top: 50%;
-    display: none;
-    left: 50%;
-    z-index: 4;
-    transform: translateY(-50%) translateX(-50%);
-    padding: 20px;
     display: flex;
     gap: 30px;
+    z-index: 4;
+    display: none;
 }
 
 .product-modal-window-image{
     width: 380px;
     height: 290px;
-    flex-shrink: 0;
     border-radius: 10px;
-    background: #D9D9D9;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-modal-window-image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .product-modal-window-info{
@@ -446,6 +444,7 @@ a.nav-item{
     flex-direction: column;
     gap: 20px;
     justify-content: space-between;
+    width: 350px;
 }
 
 .product-modal-window-description{
@@ -467,11 +466,44 @@ a.nav-item{
     gap: 10px;
 }
 
-.product-modal-window-add{
-    padding: 10px 22px;
-    width: fit-content;
-    border: 2px solid var(--accent);
-    border-radius: 5px;
-    background: transparent;
+/* VACANCIES */
+.vacancies-modal-window{
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px 70px;
+    display: none;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.modal-window-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+    transform: translateY(-50%) translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.close-modal-window{
+    padding: 12px;
+    border: 2px solid var(--white);
+    background: var(--white);
+    border-radius: 100px;
+    display: flex;
+    height: min-content;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: 1.2s;
+    display: none;
+}
+
+.close-modal-window:hover{
+    border: 2px solid var(--black);
 }
