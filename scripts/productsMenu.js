@@ -3,6 +3,10 @@ let previews = {
     'confection': []
 }
 
+let basketList =  [];
+console.log('Создали basketList:');
+console.log(basketList);
+
 let menuPage = '';
 
 if(location.href.match(/[^/]+\.html/i)[0].split('.')[0] == 'productsBakery') menuPage = 'bakery';
@@ -41,12 +45,11 @@ fetch('./scripts/products.json')
         item.className = 'products-item';
 
         itemButton.addEventListener('click', function(){
-            showModalWindow(name);
+            showModalWindow(name, price);
             document.getElementById('backdrop').style.display = 'block';
             document.getElementById('products-modal-window').style.display = 'flex';
             document.getElementById('close-modal-window').style.display = 'flex';
             document.getElementById('body').style.overflow = 'hidden';
-
         });
 
         document.getElementById('close-modal-window').addEventListener('click', function(){
@@ -67,7 +70,7 @@ fetch('./scripts/products.json')
         itemName.className = 'big-text bold products-item-name';
             
         let itemPrice = document.createElement('div');
-        itemPrice.innerText = price + ' руб';
+        itemPrice.innerText = price + ' руб.';
         itemPrice.className = 'big-text bold';
             
         //appendchild
@@ -98,33 +101,76 @@ fetch('./scripts/products.json')
     let modalImage = document.getElementById('modal-image');
     let modalPrice = document.getElementById('modal-price');
     
-
-    function showModalWindow(name){
+    function showModalWindow(name, price){
         previews[menuPage].forEach(item => {
             if(item.name == name){
                 modalName.innerText = item.name;
                 modalDescription.innerText = item.description;
                 modalImage.src = `styles/images/${item.name}.jpg`;
-                modalPrice.innerText = `${item.price} руб.`
+                modalPrice.innerText = item.price
             }
         })
-}
+
+        // QUANTITY
+        let plus = document.getElementById('quantity-plus');
+        let minus = document.getElementById('quantity-minus');
+        let quantity = Number(document.getElementById('quantity-info').innerText);
+        
+        plus.addEventListener('click', function(){
+            quantity = +quantity + 1;
+            if(quantity > 20) quantity = 20;
+            if(quantity <= 20){
+                document.getElementById('modal-price').innerText = (price * quantity).toFixed(2);
+            }
+            document.getElementById('quantity-info').innerText = quantity;
+        })
+    
+        minus.addEventListener('click', function(){
+            quantity = +quantity - 1;
+            if (quantity < 1) quantity = 1;
+            if(quantity >= 1){
+                document.getElementById('modal-price').innerText = (price * quantity).toFixed(2);
+            }
+            document.getElementById('quantity-info').innerText = quantity;
+        })
+
+        // ДОБАВИТЬ В КОРЗИНУ
+
+        document.getElementById('add-to-basket').addEventListener('click', function(){
+            console.log('start')
+            let basketItem = {};
+            console.log(basketItem)
+            
+            let basketQuantity = document.getElementById('quantity-info').innerText;
+            
+            basketItem.name = modalName.innerText;
+            basketItem.description = modalDescription.innerText;
+            basketItem.price = modalPrice.innerText;
+            basketItem.quantity = basketQuantity;
+
+            console.log('Заполнили поля basketItem:');
+            console.log(basketItem);
+
+            basketList.push(basketItem);
+
+            console.log('Пуш basketItem в basketList:');
+            console.log(basketList)
+
+            let modalWindow = document.getElementById('modal-window-container');
+            let screenWidth = window.innerWidth;
+            let screenHeight = window.innerHeight;
+            let modalWindowWidth = modalWindow.offsetWidth;
+            let modalWindowHeight = modalWindow.offsetHeight;
+        
+            modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
+            modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
+            
+            document.getElementById('backdrop').style.display = 'none';
+            document.getElementById('products-modal-window').style.display = 'none';
+            document.getElementById('close-modal-window').style.display = 'none';
+            document.getElementById('body').style.overflow = 'visible';
+            localStorage.setItem('basketList', JSON.stringify(basketList))
+        });
+
+    }
 });
-
-// QUANTITY
-let plus = document.getElementById('quantity-plus');
-let minus = document.getElementById('quantity-minus');
-let quantity = document.getElementById('quantity-info').innerText;
-
-plus.addEventListener('click', function(){
-    quantity = +quantity + 1;
-    if(quantity > 20) quantity = 20;
-    document.getElementById('quantity-info').innerText = quantity;
-})
-
-minus.addEventListener('click', function(){
-    quantity = +quantity - 1;
-    if (quantity < 0) quantity = 0;
-    document.getElementById('quantity-info').innerText = quantity;
-})
-
