@@ -1,0 +1,131 @@
+@media (max-width: 694px){
+    .big-text{
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .mobile-normal-text,
+    .normal-text{
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .small-text{
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    /* .bold{
+        font-weight: 400;
+    } */
+
+    .heading{
+        font-size: 25px;
+        line-height: 29px;
+    }
+
+    .mobile{
+        visibility: visible;
+        position: static;
+    }
+
+    .desktop-tablet{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .desktop{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .normal-main-buttons{
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+
+    /* MAIN PAGE */
+    .main-page{
+        gap: 20px;
+    }
+
+    .line{
+        height: 2px;
+        width: 130px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .logo-container{
+        height: 70px;
+    }
+    
+    .slide-image{
+        height: 300px;
+    }
+
+    .bakery-menu-item-image{
+        width: 160px;
+        height: 160px;
+    }
+
+    .contacts-container{
+        justify-content: start;
+    }
+
+    .contacts{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contacts div{
+        width: 200px;
+        text-align: right;
+    }
+
+    /* PRODUCTS MENU */
+    .products-item{
+        width: 160px;
+    }
+
+    .products-item-image{
+        height: 160px;
+    }
+
+    .products-item-name{
+        margin: 10px 0 10px 0;
+    }
+
+    .products-separator{
+        margin: 10px 0 20px 0;
+    }
+
+    /* ADD TO BASKET */
+    .product-modal-window{
+        width: 290px;
+        gap: 10px;
+    }
+
+    .product-modal-window-image{
+        height: 220px;
+    }
+
+    .quantity{
+        gap: 7px;
+    }
+
+    .quantity-tool{
+        width: 26px;
+        height: 26px;
+        border: 2px solid var(--grey);
+    }
+
+    .quantity-tool svg{
+        width: 9px;
+    }
+
+    .quantity-info{
+        width: 30px;
+        height: 26px;
+    }
+} 

@@ -16,10 +16,12 @@ if (basketList.length != 0){
                 <div class="basket-item-info">
                     <div class="basket-item-description">
                         <div class="basket-item-text">
-                            <div class="big-text bold">${item.name}</div>
-                            <div class="big-text grey">${item.description}</div>
+                            <div class="basket-title-row">
+                                <div class="big-text bold">${item.name}</div>
+                                <div class="big-text bold">${(item.price * item.quantity).toFixed(2)} руб</div>
+                            </div>
+                            <div class="desktop product-description big-text grey">${item.description}</div>
                         </div>
-                        <div class="big-text bold">${(item.price * item.quantity).toFixed(2)} руб</div>
                     </div>
                     <div class="basket-item-options">
                         <div class="quantity">

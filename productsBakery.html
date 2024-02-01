@@ -28,7 +28,7 @@
                                     <path d="M0 2.00002C0 1.41091 0.477563 0.93335 1.06667 0.93335H14.9333C15.5224 0.93335 16 1.41091 16 2.00002C16 2.58912 15.5224 3.06668 14.9333 3.06668H1.06667C0.477563 3.06668 0 2.58912 0 2.00002Z" fill="#323232"/>
                                 </svg>
                             </div>
-                            <div class="big-text quantity-info" id="quantity-info">1</div>
+                            <div class="big-text quantity-info" id="product-quantity">1</div>
                             <div class="quantity-tool" id="quantity-plus">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.93333 14.9333C6.93333 15.5224 7.4109 16 8 16C8.5891 16 9.06667 15.5224 9.06667 14.9333V9.06667H14.9333C15.5224 9.06667 16 8.5891 16 8C16 7.4109 15.5224 6.93333 14.9333 6.93333H9.06667V1.06667C9.06667 0.477563 8.5891 0 8 0C7.4109 0 6.93333 0.477563 6.93333 1.06667V6.93333H1.06667C0.477563 6.93333 0 7.4109 0 8C0 8.5891 0.477563 9.06667 1.06667 9.06667H6.93333V14.9333Z" fill="#323232"/>
@@ -41,7 +41,10 @@
                     <div class="product-modal-window-options">
                         <div class="product-modal-window-total big-text bold">
                             <div>Сумма:</div>
-                            <div id="modal-price">000,00 руб</div>
+                            <div class="modal-price-container">
+                                <div id="modal-price">000,00</div>
+                                <div>руб.</div>
+                            </div>
                         </div>
                         <button class="modal-main-buttons" id="add-to-basket">Добавить</button>
                     </div>
@@ -67,7 +70,11 @@
         <div class="small-text grey bold">Выпечка</div>
     </div>
 
-    <div class="products-list" id="products-list">
+    <div>
+        <div class="heading">выпечка</div>
+        <div class="line"></div>
+        <div class="products-list" id="products-list"></div>
+    </div>
 
     </div>
 

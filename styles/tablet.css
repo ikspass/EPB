@@ -1,0 +1,70 @@
+@media (max-width: 1200px){
+    .tablet{
+        visibility: visible;
+        position: static;
+    }
+    .desktop-tablet{
+        visibility: visible;
+        position: static;
+    }
+    .desktop{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    /* MAIN PAGE */
+    .logo-container{
+        height: 100px;
+    }
+
+    .slide{
+        flex-direction: column;
+    }
+
+    .slide-text{
+        width: 100%;
+    }
+    
+    .slide-image{
+        max-width: 100%;
+    }
+
+    .bakery-menu-item-image{
+        width: 334px;
+        height: 324px;
+    }
+
+    /* PRODUCTS MENU */
+    .products-item{
+        width: 280px;
+    }
+
+    .products-item-image{
+        height: 200px;
+    }
+
+    /* ADD TO BASKET */
+    .product-modal-window{
+        flex-direction: column;
+        width: 480px;
+        gap: 15px;
+    }
+
+    .product-modal-window-image{
+        width: 100%;
+        height: 330px;
+    }
+
+    /* BASKET */
+    .basket-item-image{
+        width: 220px;
+        height: 220px;
+    }
+
+    .basket-title-row{
+        justify-content: start;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+}

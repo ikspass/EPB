@@ -67,11 +67,11 @@ fetch('./scripts/products.json')
             
         let itemName = document.createElement('div');
         itemName.innerText = name
-        itemName.className = 'big-text bold products-item-name';
+        itemName.className = 'big-text mobile-normal-text bold products-item-name';
             
         let itemPrice = document.createElement('div');
         itemPrice.innerText = price + ' руб.';
-        itemPrice.className = 'big-text bold';
+        itemPrice.className = 'big-text mobile-normal-text bold';
             
         //appendchild
         itemOptions.appendChild(itemPrice);
@@ -112,9 +112,11 @@ fetch('./scripts/products.json')
         })
 
         // QUANTITY
+        document.getElementById('product-quantity').innerText = '1';
+
         let plus = document.getElementById('quantity-plus');
         let minus = document.getElementById('quantity-minus');
-        let quantity = Number(document.getElementById('quantity-info').innerText);
+        let quantity = Number(document.getElementById('product-quantity').innerText);
         
         plus.addEventListener('click', function(){
             quantity = +quantity + 1;
@@ -122,7 +124,7 @@ fetch('./scripts/products.json')
             if(quantity <= 20){
                 document.getElementById('modal-price').innerText = (price * quantity).toFixed(2);
             }
-            document.getElementById('quantity-info').innerText = quantity;
+            document.getElementById('product-quantity').innerText = quantity;
         })
     
         minus.addEventListener('click', function(){
@@ -131,7 +133,7 @@ fetch('./scripts/products.json')
             if(quantity >= 1){
                 document.getElementById('modal-price').innerText = (price * quantity).toFixed(2);
             }
-            document.getElementById('quantity-info').innerText = quantity;
+            document.getElementById('product-quantity').innerText = quantity;
         })
 
         // ДОБАВИТЬ В КОРЗИНУ
@@ -141,7 +143,7 @@ fetch('./scripts/products.json')
             let basketItem = {};
             console.log(basketItem)
             
-            let basketQuantity = document.getElementById('quantity-info').innerText;
+            let basketQuantity = document.getElementById('product-quantity').innerText;
             
             basketItem.name = modalName.innerText;
             basketItem.description = modalDescription.innerText;
@@ -156,7 +158,7 @@ fetch('./scripts/products.json')
             console.log('Пуш basketItem в basketList:');
             console.log(basketList)
 
-            let modalWindow = document.getElementById('modal-window-container');
+            let modalWindow = document.getElementById('modal-window');
             let screenWidth = window.innerWidth;
             let screenHeight = window.innerHeight;
             let modalWindowWidth = modalWindow.offsetWidth;
