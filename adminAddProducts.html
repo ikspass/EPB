@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить товар</title>
+    <link rel="stylesheet" href="styles/desktop.css">
+    <link rel="stylesheet" href="styles/tablet.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+</head>
+<body class="main-page">
+    <header id="header" class="header"></header>
+    
+    <div>
+        <div class="heading">добавить товар</div>
+        <div class="line"></div>
+
+        <div class="radio-buttons">
+            <div class="radio-buttons-item">
+                <div class="form-radio">
+                    <input id="radio-1" type="radio" name="radio1" checked>
+                    <label for="radio-1">Выпечка</label>
+                </div>
+                <div class="form-radio">
+                    <input id="radio-2" type="radio" name="radio1">
+                    <label for="radio-2">Кондитерские изделия</label>
+                </div>
+            </div>
+        
+            <div class="radio-buttons-item">
+                <div class="form-radio">
+                    <input id="radio-3" type="radio" name="radio2" checked>
+                    <label for="radio-3">Поштучно</label>
+                </div>
+                <div class="form-radio">
+                    <input id="radio-4" type="radio" name="radio2">
+                    <label for="radio-4">По килограммам</label>
+                </div>
+            </div>
+
+            <div class="text-params">
+                <div>
+                    <div class="normal-text">Цена за 1 шт.</div>
+                    <input type="text">
+                </div>
+                <div>
+                    <div class="normal-text">Название</div>
+                    <input type="text">
+                </div>
+                <div>
+                    <div class="normal-text">Описание</div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <input id="product-image" type="file">
+                    <label for="product-image" class="normal-main-buttons">Загрузить фото</label>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <div>
+        <div class="heading">предпросмотр</div>
+        <div class="line"></div>
+        <div class="products-item">
+            <div class="products-item-image">
+                <img src="" alt="">
+            </div>
+            <div class="big-text mobile-normal-text bold products-item-name"></div>
+            <div class="products-item-options">
+                <div class="big-text mobile-normal-text bold"></div>
+                <button class="normal-main-buttons">В корзину</button>
+            </div>
+            <div class="products-separator"></div>
+        </div>
+    </div>
+
+    
+    <script src="scripts/adminMain.js"></script>
+</body>
+</html>

@@ -3,10 +3,6 @@ let previews = {
     'confection': []
 }
 
-let basketList =  [];
-console.log('Создали basketList:');
-console.log(basketList);
-
 let menuPage = '';
 
 if(location.href.match(/[^/]+\.html/i)[0].split('.')[0] == 'productsBakery') menuPage = 'bakery';
@@ -137,27 +133,64 @@ fetch('./scripts/products.json')
         })
 
         // ДОБАВИТЬ В КОРЗИНУ
+        // Проверяем, есть ли уже массив в LocalStorage
+        if (!localStorage.getItem('basketListData')) {
+            // Если нет, создаем новый массив
+            let basketListData = [];
+            // Сохраняем массив в LocalStorage
+            localStorage.setItem('basketListData', JSON.stringify(basketListData));
+        }
 
-        document.getElementById('add-to-basket').addEventListener('click', function(){
+        // Извлекаем объект из LocalStorage и преобразуем его обратно в объект
+        let basketList = JSON.parse(localStorage.getItem('basketListData'));
+
+        let addToBasketButton = document.getElementById('add-to-basket');
+
+        // Удаляем все предыдущие обработчики событий
+        addToBasketButton.replaceWith(addToBasketButton.cloneNode(true));
+        addToBasketButton = document.getElementById('add-to-basket');
+
+        // Теперь добавляем новый обработчик событий
+        addToBasketButton.addEventListener('click', function(){
+            console.log('Создали basketList:');
+            console.log(basketList);
+
             console.log('start')
             let basketItem = {};
             console.log(basketItem)
             
             let basketQuantity = document.getElementById('product-quantity').innerText;
             
-            basketItem.name = modalName.innerText;
-            basketItem.description = modalDescription.innerText;
-            basketItem.price = modalPrice.innerText;
-            basketItem.quantity = basketQuantity;
+            previews[menuPage].forEach(item => {
+                if(item.name == modalName.innerText){
+                    basketItem.name = item.name;
+                    basketItem.description = item.description;
+                    basketItem.price = item.price;
+                    basketItem.quantity = basketQuantity;
+                }
+            })
 
             console.log('Заполнили поля basketItem:');
             console.log(basketItem);
 
-            basketList.push(basketItem);
+            // Добавляем элемент в объект
+            let existingItem = basketList.find(element => element.name == basketItem.name);
+
+            if (existingItem) {
+                // Если элемент уже существует, увеличиваем его количество
+                existingItem.quantity = Number(existingItem.quantity) + Number(basketItem.quantity);
+            } else {
+                // Если элемента еще нет, добавляем его в массив
+                basketList.push(basketItem);
+            }
+
+            // Сохраняем обновленный объект обратно в LocalStorage
+            localStorage.setItem('basketListData', JSON.stringify(basketList));
 
             console.log('Пуш basketItem в basketList:');
             console.log(basketList)
 
+            // ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
             let modalWindow = document.getElementById('modal-window');
             let screenWidth = window.innerWidth;
             let screenHeight = window.innerHeight;
@@ -171,8 +204,8 @@ fetch('./scripts/products.json')
             document.getElementById('products-modal-window').style.display = 'none';
             document.getElementById('close-modal-window').style.display = 'none';
             document.getElementById('body').style.overflow = 'visible';
+
             localStorage.setItem('basketList', JSON.stringify(basketList))
         });
-
     }
 });

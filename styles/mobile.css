@@ -128,4 +128,14 @@
         width: 30px;
         height: 26px;
     }
+
+    /* BASKET */
+    .basket-item-info{
+        padding: 0 0 0 10px;
+    }
+
+    .basket-item-image{
+        width: 130px;
+        height: 130px;
+    }
 } 
