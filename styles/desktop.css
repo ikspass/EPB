@@ -553,6 +553,12 @@ input[type = text]{
     display: none;
 }
 
+.modal-radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 .modal-price-container{
     display: flex;
     flex-direction: row;
@@ -721,6 +727,46 @@ input[type=file]{
 }
 label.normal-main-buttons{
     padding: 6px 15px;
+}
+
+.modal-form-radio{
+    display: flex;
+}
+
+.modal-form-radio input[type = radio] {
+	display: none;
+}
+
+.modal-form-radio input[type=radio]:checked ~ div label.modal-radio:before {
+	background: url(./images/checked-radio.png) 0 0 no-repeat;
+    background-position: center;
+}
+
+
+label.modal-radio{
+    display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+    line-height: 18px;
+	user-select: none;
+    transition: 0.5s;
+}
+
+label.modal-radio:before{
+    content: "";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+    border: 2px solid var(--accent);
+    box-sizing: border-box;
+    border-radius: 100px;
+	position: absolute;
+	left: 0;
+	background: var(--white);
+}
+label.modal-radio:hover {
+	color: var(--accent);
 }
 /* ORDERS */
 .order{

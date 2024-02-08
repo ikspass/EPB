@@ -14,7 +14,7 @@ document.getElementById('header').innerHTML =
     
         <div class="desktop navigation-row">
             <a href="bakeryMenu.html" class="nav-item">Меню</a>
-            <div class="nav-item">О компании</div>
+            <a href="aboutCompany.html" class="nav-item">О компании</a>
             <div id="vacancies" class="nav-item">Вакансии</div>
             <div id="delivery" class="nav-item">Доставка</div>
         </div>

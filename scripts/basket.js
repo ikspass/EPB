@@ -31,6 +31,7 @@ function plus(name, price){
     let quantity = document.getElementById(`quantity-${name}`).innerText;
     quantity = +quantity + 1;
     if(quantity > 20) quantity = 20;
+    else if (quantity < 1) quantity = 1;
     else {
         document.getElementById(`product-price-${name}`).innerText = (price * (+quantity)).toFixed(2);
     }
@@ -44,6 +45,7 @@ function minus(name, price){
     quantity = +quantity - 1;
 
     if (quantity < 1) quantity = 1;
+    else if(quantity > 20) quantity = 20;
     else {
         document.getElementById(`product-price-${name}`).innerText = (price * (+quantity)).toFixed(2);
     }
@@ -51,8 +53,6 @@ function minus(name, price){
 
     totalSum();
 }
-
-
 
 function resetItems(){
     basket.innerHTML = ``;

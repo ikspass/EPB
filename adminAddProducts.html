@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/desktop.css">
     <link rel="stylesheet" href="styles/tablet.css">
     <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="icon" href="styles/images/icon.png">
 </head>
 <body class="main-page">
     <header id="header" class="header"></header>
@@ -41,15 +42,15 @@
             <div class="text-params">
                 <div>
                     <div class="normal-text">Цена за 1 шт.</div>
-                    <input type="text">
+                    <input id="product-price" type="text">
                 </div>
                 <div>
                     <div class="normal-text">Название</div>
-                    <input type="text">
+                    <input id="product-name" type="text">
                 </div>
                 <div>
                     <div class="normal-text">Описание</div>
-                    <textarea></textarea>
+                    <textarea id="product-description"></textarea>
                 </div>
                 <div>
                     <input id="product-image" type="file">
@@ -58,6 +59,9 @@
             </div>
         </div>       
     </div>
+
+    <button id="apply" class="normal-main-buttons">Применить</button>
+
     <div>
         <div class="heading">предпросмотр</div>
         <div class="line"></div>
@@ -65,9 +69,9 @@
             <div class="products-item-image">
                 <img src="" alt="">
             </div>
-            <div class="big-text mobile-normal-text bold products-item-name"></div>
+            <div class="big-text mobile-normal-text bold products-item-name" id="preview-name"></div>
             <div class="products-item-options">
-                <div class="big-text mobile-normal-text bold"></div>
+                <div class="big-text mobile-normal-text bold"><span id="preview-price"></span> руб.</div>
                 <button class="normal-main-buttons">В корзину</button>
             </div>
             <div class="products-separator"></div>
@@ -76,5 +80,6 @@
 
     
     <script src="scripts/adminMain.js"></script>
+    <script src="scripts/adminAddProducts.js"></script>
 </body>
 </html>
