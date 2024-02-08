@@ -20,6 +20,13 @@ button{
     color: var(--black);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-text-fill-color: var(--black) !important;
+}
+
 .tablet,
 .mobile{
     visibility: hidden;
@@ -38,9 +45,15 @@ button{
     cursor: pointer;
     font-weight: 700;
     border-radius: 5px;
-    width:  fit-content;
+    width: fit-content;
     transition: 1.2s;
     user-select: none;
+}
+
+.modal-main-buttons:disabled,
+.modal-main-buttons:disabled:hover{
+    border: 2px solid var(--grey);
+    color: var(--grey);
 }
 
 .normal-main-buttons.active{
@@ -452,10 +465,11 @@ a.instagram{
     display: none;
 }
 
-input[type = text]{
+input[type=text]{
     height: 40px;
     border-radius: 5px;
     border: 2px solid var(--grey);
+    background: var(--white);
     margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
@@ -543,16 +557,20 @@ input[type = text]{
 
 .product-modal-window{
     padding: 20px;
-    width: 700px;
+    width: 800px;
     flex-shrink: 0;
     background: var(--white);
     border-radius: 10px;
     display: flex;
     gap: 30px;
+    flex-shrink: 0 ;
     z-index: 4;
     display: none;
 }
 
+.modal-price{
+    width: max-content;
+}
 .modal-radio{
     display: flex;
     flex-direction: column;
@@ -566,7 +584,7 @@ input[type = text]{
 }
 
 .product-modal-window-image{
-    width: 380px;
+    min-width: 380px;
     height: 290px;
     border-radius: 10px;
     position: relative;
@@ -588,11 +606,24 @@ input[type = text]{
     justify-content: space-between;
     width: 100%;
 }
+.radio-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-modal-window-description-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 
 .product-modal-window-description{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 100%;
 }
 
 .product-modal-window-total{
@@ -729,9 +760,17 @@ label.normal-main-buttons{
     padding: 6px 15px;
 }
 
-.modal-form-radio{
+.modal-radio{
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+.price-kg{
+    margin-left: 25px;
+}
+
 
 .modal-form-radio input[type = radio] {
 	display: none;
@@ -751,6 +790,7 @@ label.modal-radio{
     line-height: 18px;
 	user-select: none;
     transition: 0.5s;
+    width: 100px;
 }
 
 label.modal-radio:before{

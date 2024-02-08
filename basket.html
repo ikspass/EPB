@@ -16,14 +16,14 @@
             <div class="grey big-text checkout-title">Введите Ваши данные чтобы мы могли связаться с Вами</div>
             <div>
                 <div class="big-text">Почта</div>
-                <input id="email" type="text">
+                <input class="main-input" id="email" type="text">
             </div>
             <div>
                 <div class="big-text">Номер телефона</div>
-                <input id="phone-number" type="text">
+                <input class="main-input" id="phone-number" type="text">
             </div>
             <div class="checkout-modal-button">
-                <button id="aссept-checkout" class="modal-main-buttons">Отправить</button>
+                <button id="aссept-checkout" class="modal-main-buttons" onclick="acceptCheckout()">Отправить</button>
             </div>
         </div>
         <button class="close-modal-window" id="close-modal-window">
@@ -54,16 +54,17 @@
             
         </div>
     </div>
-
+    <div class="big-text grey" id="empty" style="text-align: center;">Ваша корзина пуста</div>
     <div class="checkout-button">
         <div class="products-separator"></div>
-        <div class="big-text bold">Общая сумма: <span id="total-price"></span> руб.</div>
-        <button id="checkout-button" class="modal-main-buttons big-text bold check">Оформить заказ</button>
+        <div id="total-sum" class="big-text bold">Общая сумма: <span id="total-price">0</span> руб.</div>
+        <button id="checkout-button" onclick="checkout()" style="visibility: hidden;" class="modal-main-buttons big-text bold">Оформить заказ</button>
     </div>
 
     <div id="contacts" class="contacts-container"></div>
     
     <script src="scripts/basket.js"></script>
+    <script src="scripts/inputs.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>
