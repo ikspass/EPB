@@ -32,7 +32,6 @@ function closeProductModalWindow(type){
     document.getElementById(`close-modal-window-${type}`).style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
-    
 
 function openProductModalWindowKg(name){
     let modalWindow = document.getElementById('modal-window-item');
@@ -54,11 +53,70 @@ function openProductModalWindowKg(name){
             modalNameKg.innerText = item.name;
             modalDescriptionKg.innerText = item.description;
             modalImageKg.src = `styles/images/${item.name}.jpg`;
-            modalPriceKg_1.innerText = item.price_1;
-            modalPriceKg_2.innerText = item.price_2;
+            modalPriceKg_1.innerText = item.price_1.toFixed(2);
+            modalPriceKg_2.innerText = item.price_2.toFixed(2);
             modalWeightKg_1.innerText = item.weight_1;
             modalWeightKg_2.innerText = item.weight_2;
         }
+    });
+
+    let addToBasketButtonKg = document.getElementById('add-to-basket-kg');
+    addToBasketButtonKg.replaceWith(addToBasketButtonKg.cloneNode(true));
+    addToBasketButtonKg = document.getElementById('add-to-basket-kg');
+
+    addToBasketButtonKg.addEventListener('click', function(){
+        let basketItem = {};
+        let weight;
+        let price;
+
+        let selectedRadioElement = document.querySelector('input[name="radio"]:checked');
+        let selectedRadio = selectedRadioElement ? selectedRadioElement.id : null;
+        if (selectedRadio == 'modal-weight-radio-1'){
+            weight = 'weight_1';
+            price = 'price_1';
+        }
+        else if (selectedRadio == 'modal-weight-radio-2'){
+            weight = 'weight_2';
+            price = 'price_2';
+        }
+
+        previews[menuPage].forEach(item => {
+            if(item.name == name){
+                basketItem.name = item.name;
+                basketItem.description = item.description;
+                basketItem.price = item[price]; 
+                basketItem.quantity = item[weight];
+                basketItem.type = 'kilograms';
+            }
+        })
+        console.log(basketItem);
+
+    
+        //JSON ЧАСТЬ
+        if (!localStorage.getItem('basketListData')) {
+            let basketListData = [];
+            localStorage.setItem('basketListData', JSON.stringify(basketListData));
+        }
+        let basketList = JSON.parse(localStorage.getItem('basketListData'));
+        console.log(basketList)
+
+        let existingItem = basketList.find(element => element.name == basketItem.name);
+
+        if (existingItem) {
+            previews[menuPage].forEach(item => {
+                if(item.name == name){
+                    existingItem.price = item[price]; 
+                    existingItem.quantity = item[weight]; 
+                }
+            })
+
+        }
+        else {
+            // Если элемента еще нет, добавляем его в массив
+            basketList.push(basketItem);
+        }
+        localStorage.setItem('basketListData', JSON.stringify(basketList));
+        closeProductModalWindow('kg');
     });
 
     document.getElementById('close-modal-window-kg').addEventListener('click', function(){
@@ -90,7 +148,7 @@ function openProductModalWindowItem(name){
             modalNameItem.innerText = item.name;
             modalDescriptionItem.innerText = item.description;
             modalImageItem.src = `styles/images/${item.name}.jpg`;
-            modalPriceItem.innerText = item.price;
+            modalPriceItem.innerText = item.price.toFixed(2);
             price = item.price;
         }
     });
@@ -111,7 +169,7 @@ function openProductModalWindowItem(name){
         if(quantity > 20) quantity = 20;
         else if(quantity < 1) quantity = 1;
         else{
-            modalPrice.innerText = (price * quantity).toFixed(2);
+            modalPriceItem.innerText = (price * quantity).toFixed(2);
         }
         modalQuantityItem.innerText = quantity;
     })    
@@ -121,7 +179,7 @@ function openProductModalWindowItem(name){
         if(quantity > 20) quantity = 20;
         else if(quantity < 1) quantity = 1;
         else{
-            modalPrice.innerText = (price * quantity).toFixed(2);
+            modalPriceItem.innerText = (price * quantity).toFixed(2);
         }
         modalQuantityItem.innerText = quantity;
     })
@@ -160,68 +218,16 @@ function addItem(name, price, type){
     `
 }
 
-// JSON
-fetch('./scripts/products.json')
-.then(response => response.json())
-.then(data => {
-    data.forEach(element => {
-        if(element.category == 'confection'){
-            previews['confection'].push(element);
-        }
-        if(element.category == 'bakery'){
-            previews['bakery'].push(element);
-        }
-    });
-    
-    // ДОБАВИТЬ В КОРЗИНУ
-    
+// ДОБАВИТЬ В КОРЗИНУ
     // KG
-    let addToBasketButtonKg = document.getElementById('add-to-basket-kg');
-    addToBasketButtonKg.replaceWith(addToBasketButtonKg.cloneNode(true));
-    addToBasketButtonKg = document.getElementById('add-to-basket-kg');
-
-    addToBasketButtonKg.addEventListener('click', function(){
-        let basketItem = {};
-                    
-        previews[menuPage].forEach(item => {
-            if(item.name == modalNameItem.innerText){
-                basketItem.name = item.name;
-                basketItem.description = item.description;
-                basketItem.price = item.price; //тут поменять
-                basketItem.quantity = quantity; // тут поменять
-            }
-        })
+ 
     
-        //JSON ЧАСТЬ
-        if (!localStorage.getItem('basketListData')) {
-            let basketListData = [];
-            localStorage.setItem('basketListData', JSON.stringify(basketListData));
-        }
-    
-        let basketList = JSON.parse(localStorage.getItem('basketListData'));
-    
-        let existingItem = basketList.find(element => element.name == basketItem.name);
-
-        if (existingItem) {
-            existingItem.price = price;
-            existingItem.quantity = quantity;
-        }
-        else {
-            // Если элемента еще нет, добавляем его в массив
-            basketList.push(basketItem);
-        }
-        localStorage.setItem('basketListData', JSON.stringify(basketList));
-
-        closeProductModalWindow('kg');
-    });
-    
-    // СОБЫТИЕ НАЖАТИЯ ITEM
+    //ITEM
     let addToBasketButtonItem = document.getElementById('add-to-basket-item');
     addToBasketButtonItem.replaceWith(addToBasketButtonItem.cloneNode(true));
     addToBasketButtonItem = document.getElementById('add-to-basket-item');
 
     addToBasketButtonItem.addEventListener('click', function(){
-        console.log('нажал кнопку')
         let basketItem = {};
                     
         previews[menuPage].forEach(item => {
@@ -230,6 +236,7 @@ fetch('./scripts/products.json')
                 basketItem.description = item.description;
                 basketItem.price = item.price;
                 basketItem.quantity = quantity;
+                basketItem.type = 'item';
             }
         })
     
@@ -263,6 +270,19 @@ fetch('./scripts/products.json')
         localStorage.setItem('basketListData', JSON.stringify(basketList));
 
         closeProductModalWindow('item');
+    });
+
+// JSON
+fetch('./scripts/products.json')
+.then(response => response.json())
+.then(data => {
+    data.forEach(element => {
+        if(element.category == 'confection'){
+            previews['confection'].push(element);
+        }
+        if(element.category == 'bakery'){
+            previews['bakery'].push(element);
+        }
     });
     
     previews[menuPage].forEach(element => {

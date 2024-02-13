@@ -18,14 +18,15 @@ function countTotalSum(){
     document.getElementById('total-price').innerText = totalSum.toFixed(2)
 }
 
-function addBasketItem(name, price, description, quantity){
+function addBasketItem(name, price, description, quantity, type){
     let basketListContainer = document.getElementById('basket-list');
 
     let basketItemContainer = document.createElement('div');
     basketItemContainer.className = 'basket-item';
     basketListContainer.appendChild(basketItemContainer);
 
-    basketItemContainer.innerHTML = 
+    if(type == 'item'){
+        basketItemContainer.innerHTML = 
     `
     <div class="basket-item-image">
         <img src="styles/images/${name}.jpg" alt="${name}">
@@ -60,7 +61,32 @@ function addBasketItem(name, price, description, quantity){
         </div>                    
     </div>
     `
-
+    }
+    else if(type == 'kilograms'){
+        basketItemContainer.innerHTML =
+        `
+        <div class="basket-item-image">
+            <img src="styles/images/${name}.jpg" alt="${name}">
+        </div>
+        <div class="basket-item-info">
+            <div class="basket-item-description">
+                <div class="basket-item-text">
+                    <div class="basket-title-row big-text bold">
+                        <div class="big-text bold">${name}</div>
+                        <div><span id="product-price-${name}">${price}</span> руб.</div>
+                    </div>
+                    <div class="desktop product-description big-text grey">${description}</div>
+                </div>
+            </div>
+            <div class="basket-item-options">
+                <div class="quantity">
+                    <div class="big-text"><span>${quantity}</span> г.</div>
+                </div>
+                <button class="modal-main-buttons big-text bold" onclick="deleteBasketItem('${name}')">Удалить</button>
+            </div>                    
+        </div>
+        `
+    }
 }
 
 // КНОПКИ КОЛИЧЕСТВА
@@ -129,7 +155,7 @@ function resetItems(){
 
     if(basketList.length > 0){
         basketList.forEach(element => {
-            addBasketItem(element.name, element.price, element.description, element.quantity);
+            addBasketItem(element.name, element.price, element.description, element.quantity, element.type);
         })
 
         document.getElementById('checkout-button').style.visibility = 'visible';
