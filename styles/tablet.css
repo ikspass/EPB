@@ -4,15 +4,16 @@
         position: static;
     }
     .desktop-tablet{
-        visibility: visible;
-        position: static;
+        display: none;
     }
     .desktop{
-        visibility: hidden;
-        position: absolute;
+        display: none;
     }
 
     /* MAIN PAGE */
+    .burger-container{
+        visibility: visible;
+    }
     .logo-container{
         height: 100px;
     }

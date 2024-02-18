@@ -1,17 +1,19 @@
 [
     {
+        "id": 1,
         "phone": "+375254673890",
         "email": "aboba@mail.ru",
         "products": [
                 {
                     "name": "Ванильный кекс",
-                    "price": 1.20,
+                    "price": 4.80,
                     "type": "item", 
                     "quantity": 4
                 }
             ]
     },
     {
+        "id": 2,
         "phone": "+375291847389",
         "email": "amogus@mail.ru",
         "products": [
@@ -20,6 +22,12 @@
                 "price": 32.45,
                 "type": "kilograms",
                 "quantity": 0.92
+            },
+            {
+                "name": "Ванильный кекс",
+                "price": 3.60,
+                "type": "item", 
+                "quantity": 3
             }
             ]
     }

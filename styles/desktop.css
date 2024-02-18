@@ -143,11 +143,79 @@ body{
 
 /* HEADER */
 
-.burger{
+.burger-container{
     visibility: hidden;
     position: absolute;
     display: flex;
     justify-content: end;
+}
+.burger-nav-menu{
+    padding: 26px 20px 70px 20px;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    border-radius: 0 0 10px 0;
+    position: absolute;
+    background: var(--white);
+    transition: 0.7s;
+    left: -100%;
+    z-index: 6;
+}
+.burger{
+    background: transparent;
+    border: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 1s;
+    position: relative;
+}
+.burger:before,
+.burger:after{
+    content: '';
+    width: 22px;
+    height: 2px;
+    transition: .5s;
+    border-radius: 100px;
+    background: var(--black);
+    position: absolute;
+}
+.burger:before{
+    top: 17px;
+}
+.burger:after{
+    bottom: 17px;
+}
+.burger.active:before{
+    transform: rotate(-45deg);
+    top: 21px;
+}
+.burger.active:after{
+    transform: rotate(45deg);
+    bottom: 21px;
+}
+.burger-nav-menu.active{
+    left: 0;
+}
+.burger-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.burger-nav-items{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.burger-nav-item{
+    display: flex;
+    gap: 10px;
 }
 
 .header{
@@ -561,7 +629,7 @@ input[type=text]{
 
 .products-separator{
     width: 100%;
-    height: 1px;
+    height: 2px;
     flex-shrink: 0;
     border-radius: 10px;
     background: var(--grey);
@@ -870,6 +938,11 @@ label.modal-radio:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.order-buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .order-list{
     display: flex;
