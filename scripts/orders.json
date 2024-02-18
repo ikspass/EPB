@@ -1,20 +1,26 @@
 [
     {
-        "id": "",
-        "phone": "",
-        "email": "",
-        "products": {
-            "item": [
+        "phone": "+375254673890",
+        "email": "aboba@mail.ru",
+        "products": [
                 {
                     "name": "Ванильный кекс",
-                    "description": "Нежная выпечка из бисквитного теста украшенная сливочным кремом и посыпкой.",
-                    "price": "1.20",
-                    "category": "confection"
+                    "price": 1.20,
+                    "type": "item", 
+                    "quantity": 4
                 }
-            ],
-            "kilograms": [
-
             ]
-        }
+    },
+    {
+        "phone": "+375291847389",
+        "email": "amogus@mail.ru",
+        "products": [
+            {
+                "name": "Клубничный торт",
+                "price": 32.45,
+                "type": "kilograms",
+                "quantity": 0.92
+            }
+            ]
     }
 ]

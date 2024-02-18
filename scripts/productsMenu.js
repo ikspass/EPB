@@ -11,7 +11,6 @@ let previews = {
 }
 
 let quantity;
-
 let modalNameItem = document.getElementById('modal-name-item');
 let modalDescriptionItem = document.getElementById('modal-description-item');
 let modalImageItem = document.getElementById('modal-image-item');
@@ -25,6 +24,8 @@ let modalPriceKg_1 = document.getElementById('modal-price-kg-1');
 let modalWeightKg_1 = document.getElementById('modal-weight-kg-1');
 let modalPriceKg_2 = document.getElementById('modal-price-kg-2');
 let modalWeightKg_2 = document.getElementById('modal-weight-kg-2');
+let modalPriceForKg_1 = document.getElementById('modal-price-for-kg-1');
+let modalPriceForKg_2 = document.getElementById('modal-price-for-kg-2');
 
 function closeProductModalWindow(type){
     document.getElementById('backdrop').style.display = 'none';
@@ -57,6 +58,8 @@ function openProductModalWindowKg(name){
             modalPriceKg_2.innerText = item.price_2.toFixed(2);
             modalWeightKg_1.innerText = item.weight_1;
             modalWeightKg_2.innerText = item.weight_2;
+            modalPriceForKg_1.innerText = (item.price_1 / item.weight_1).toFixed(2);
+            modalPriceForKg_2.innerText = (item.price_2 / item.weight_2).toFixed(2);
         }
     });
 
@@ -98,7 +101,6 @@ function openProductModalWindowKg(name){
             localStorage.setItem('basketListData', JSON.stringify(basketListData));
         }
         let basketList = JSON.parse(localStorage.getItem('basketListData'));
-        console.log(basketList)
 
         let existingItem = basketList.find(element => element.name == basketItem.name);
 

@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 :root{
     --black: #323232;
@@ -15,6 +21,7 @@ a:link,
 a:visited,
 a:active{
     text-decoration: none;
+    color: var(--black)
 }
 button{
     color: var(--black);
@@ -92,6 +99,7 @@ body{
     font-size: 48px;
     font-weight: 400;
     line-height: 56px;
+    font-family: 'Montserrat';
     text-transform: uppercase;
 }
 .small-text{
@@ -202,6 +210,11 @@ a.nav-item{
 
 /* SLIDER */
 
+.slides-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
 .slider{
     display: flex;
     width: 100%;
@@ -223,6 +236,17 @@ a.nav-item{
 
 .slide-text{
     width: 22vw;
+}
+
+.slide-item{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.slide-item-button{
+    display: flex;
+    width: 100%;
+    justify-content: end;
 }
 
 .slide-image-container{
@@ -568,6 +592,19 @@ input[type=text]{
     display: none;
 }
 
+.preview-product-modal-window{
+    padding: 20px;
+    width: 800px;
+    flex-shrink: 0;
+    background: var(--white);
+    border-radius: 10px;
+    display: flex;
+    gap: 30px;
+    flex-shrink: 0 ;
+    z-index: 4;
+    border: 1px solid var(--grey);
+}
+
 .modal-price{
     width: max-content;
 }
@@ -665,6 +702,8 @@ input[type=text]{
     transform: translateY(-50%) translateX(-50%);
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -734,6 +773,19 @@ input[type=text]{
     flex-direction: column;
     gap: 20px;
 }
+
+.text-params-container{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.text-params-columns{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .text-params input{
     width: 700px;
 }
@@ -790,7 +842,7 @@ label.modal-radio{
     line-height: 18px;
 	user-select: none;
     transition: 0.5s;
-    width: 100px;
+    width: 120px;
 }
 
 label.modal-radio:before{
