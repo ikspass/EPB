@@ -27,6 +27,7 @@ let modalWeightKg_2 = document.getElementById('modal-weight-kg-2');
 let modalPriceForKg_1 = document.getElementById('modal-price-for-kg-1');
 let modalPriceForKg_2 = document.getElementById('modal-price-for-kg-2');
 
+
 function closeProductModalWindow(type){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById(`products-modal-window-${type}`).style.display = 'none';
@@ -124,6 +125,7 @@ function openProductModalWindowKg(name){
     document.getElementById('close-modal-window-kg').addEventListener('click', function(){
         closeProductModalWindow('kg')
     })
+
 }
 
 function openProductModalWindowItem(name){
@@ -135,11 +137,17 @@ function openProductModalWindowItem(name){
     let modalWindowWidth = modalWindow.offsetWidth;
     let modalWindowHeight = modalWindow.offsetHeight;
 
-    document.getElementById('backdrop').style.display = 'block';
-    document.getElementById('products-modal-window-item').style.display = 'flex';
-    document.getElementById('close-modal-window-item').style.display = 'block';
-    document.getElementById('body').style.overflow = 'hidden';
-
+    if (window.matchMedia("(max-width: 694px)").matches){
+        document.getElementById('backdrop').style.display = 'block';
+        document.getElementById('products-modal-window-item').style.display = 'flex';
+        document.getElementById('body').style.overflow = 'hidden';
+    }
+    else{
+        document.getElementById('backdrop').style.display = 'block';
+        document.getElementById('products-modal-window-item').style.display = 'flex';
+        document.getElementById('close-modal-window-item').style.display = 'block';
+        document.getElementById('body').style.overflow = 'hidden';
+    }
     modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
     modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
 
@@ -187,6 +195,10 @@ function openProductModalWindowItem(name){
     })
 
     document.getElementById('close-modal-window-item').addEventListener('click', function(){
+        closeProductModalWindow('item');
+    })
+
+    document.getElementById('backdrop').addEventListener('click', function(){
         closeProductModalWindow('item');
     })
 }
@@ -296,4 +308,5 @@ fetch('./scripts/products.json')
         }
     });
 });
+
 

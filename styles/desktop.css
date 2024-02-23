@@ -800,7 +800,7 @@ input[type=text]{
     transform: translateY(-50%) translateX(-50%);
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: min-content;
     justify-content: center;
     gap: 10px;
 }

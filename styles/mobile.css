@@ -9,8 +9,8 @@
         line-height: 14px;
     }
     .small-text{
-        font-size: 10px;
-        line-height: 12px;
+        font-size: 12px;
+        line-height: 14px;
     }
 
     /* .bold{
@@ -71,7 +71,9 @@
         width: 160px;
         height: 160px;
     }
-
+    .products-separator{
+        height: 1px;
+    }
     .contacts-container{
         justify-content: start;
     }
@@ -108,8 +110,17 @@
     .product-modal-window{
         width: 290px;
         gap: 10px;
+        padding: 12px;
     }
 
+    .product-modal-window-description-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .product-modal-window-options{
+        gap: 20px;
+    }
     .product-modal-window-image{
         height: 220px;
         width: 100%;
