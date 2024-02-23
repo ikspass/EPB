@@ -3,9 +3,6 @@
         visibility: visible;
         position: static;
     }
-    .desktop-tablet{
-        display: none;
-    }
     .desktop{
         display: none;
     }
@@ -18,8 +15,9 @@
         height: 100px;
     }
 
-    .slide{
+    .content{
         flex-direction: column;
+        gap: 10px;
     }
 
     .slide-text{
@@ -27,7 +25,10 @@
     }
     
     .slide-image{
-        max-width: 100%;
+        width: 100%;
+    }
+    .slider-container{
+        gap: 20px;
     }
 
     .bakery-menu-item-image{

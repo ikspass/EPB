@@ -59,6 +59,10 @@
         height: 70px;
     }
     
+    .slider-buttons{
+        display: none;
+    }
+
     .slide-image{
         height: 300px;
     }
@@ -85,7 +89,7 @@
 
     /* PRODUCTS MENU */
     .products-item{
-        width: 160px;
+        width: 140px;
     }
 
     .products-item-image{
@@ -108,8 +112,12 @@
 
     .product-modal-window-image{
         height: 220px;
+        width: 100%;
     }
 
+    #show-modal-window{
+        display: none;
+    }
     .quantity{
         gap: 7px;
     }

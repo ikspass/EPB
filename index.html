@@ -15,22 +15,57 @@
 
     <header id="header" class="header"></header>
 
-    <div class="slider">
-        <div class="slide">
-            <div class="slide-description">
-                <div class="heading">тайтл</div>
-                <div class="line"></div>
-                <div class="slide-text big-text">
-                    Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что начало повседневной работы по формированию позиции требуют определения и уточнения форм развития.
-                </div>
+    <div class="slider-container">
+            <button id="left-button" class="desktop-tablet slider-buttons">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
+                    <path d="M21 9C21.5523 9 22 8.55228 22 8C22 7.44772 21.5523 7 21 7V9ZM0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM21 7L1 7V9L21 9V7Z" fill="#323232"/>
+                </svg>
+            </button>
+
+            <div class="slider" id="slider">
+                <div class="slides">
+                    <div class="slide" id="slide">
+                        <div class="content">
+                            <div class="slide-description">
+                                <div class="heading">тайтл</div>
+                                <div class="line"></div>
+                                <div class="slide-text big-text">
+                                    Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что начало повседневной работы по формированию позиции требуют определения и уточнения форм развития.
+                                </div>
+                            </div>
+                            <div class="slide-image-container">
+                                <div class="slide-image">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                    <div class="slide">
+                        <div class="content">
+                            <div class="slide-description">
+                                <div class="heading">тайтл1</div>
+                                <div class="line"></div>
+                                <div class="slide-text big-text">
+                                    Идейные соображения высшего порядка, а также реализация намеченных плановых заданий представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что начало повседневной работы по формированию позиции требуют определения и уточнения форм развития.
+                                </div>
+                            </div>
+                            <div class="slide-image-container">
+                                <div class="slide-image">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>               
+                </div>    
             </div>
-            <div class="slide-image-container">
-                <div class="slide-image">
-                    <img src="" alt="">
-                </div>
-            </div>
-        </div>
+
+            <button id="right-button" class="desktop-tablet slider-buttons">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
+                    <path d="M1 9C0.447715 9 0 8.55228 0 8C0 7.44772 0.447715 7 1 7L1 9ZM21.7071 7.29289C22.0976 7.68342 22.0976 8.31658 21.7071 8.70711L15.3431 15.0711C14.9526 15.4616 14.3195 15.4616 13.9289 15.0711C13.5384 14.6805 13.5384 14.0474 13.9289 13.6569L19.5858 8L13.9289 2.34315C13.5384 1.95262 13.5384 1.31946 13.9289 0.928932C14.3195 0.538408 14.9526 0.538408 15.3431 0.928932L21.7071 7.29289ZM1 7L21 7V9L1 9L1 7Z" fill="#323232"/>
+                </svg>
+            </button>
     </div>
+    
 
     <div class="bakery-menu">
         <div class="heading">наше меню</div>
@@ -53,5 +88,6 @@
 
     <div id="contacts" class="contacts-container"></div>
     <script src="scripts/main.js"></script>
+    <script src="scripts/mainPage.js"></script>
 </body>
 </html>

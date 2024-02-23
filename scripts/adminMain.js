@@ -4,13 +4,6 @@ document.getElementById('header').innerHTML =
         <img class="logo" src="styles/images/logo.jpeg" alt="logo">
     </a>
         <div class="navigation normal-text bold">
-            <div class="tablet mobile burger">
-                <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1H21" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M1 17H21" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M1 9H21" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div>
             <div class="desktop navigation-row">
                 <div class="nav-item">
                     <div class="icon">

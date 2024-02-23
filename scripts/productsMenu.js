@@ -214,7 +214,7 @@ function addItem(name, price, type){
     <div class="big-text mobile-normal-text bold products-item-name">${name}</div>
         <div class="products-item-options">
             <div class="big-text mobile-normal-text bold"><span>${price.toFixed(2)}</span> руб.</div>
-            <button class="normal-main-buttons" onclick="openProductModalWindow${productType}('${name}')">В корзину</button>
+            <button class="normal-main-buttons desktop-tablet" onclick="openProductModalWindow${productType}('${name}')">В корзину</button>
         </div>
     <div class="products-separator"></div>
     `
