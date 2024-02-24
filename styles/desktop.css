@@ -149,18 +149,17 @@ body{
     justify-content: end;
 }
 .burger-nav-menu{
-    padding: 20px 20px 70px 40px;
-    width: max-content;
+    padding: 20px 20px 40px 40px;
+    width: 100vw;
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     border-right: 2px solid var(--accent);
     border-bottom: 2px solid var(--accent);
-    border-top: 2px solid var(--accent);
-    border-radius: 0 10px 10px 0;
     position: absolute;
     background: var(--white);
     transition: 0.7s;
-    top: 90px;
+    top: 0;
     left: -100%;
     z-index: 2;
 }
