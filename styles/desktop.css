@@ -149,21 +149,23 @@ body{
     justify-content: end;
 }
 .burger-nav-menu{
-    padding: 74px 20px 70px 40px;
+    padding: 20px 20px 70px 40px;
     width: max-content;
     display: flex;
     justify-content: center;
     border-right: 2px solid var(--accent);
     border-bottom: 2px solid var(--accent);
-    border-radius: 0 0 10px 0;
+    border-top: 2px solid var(--accent);
+    border-radius: 0 10px 10px 0;
     position: absolute;
     background: var(--white);
     transition: 0.7s;
+    top: 90px;
     left: -100%;
     z-index: 2;
 }
 .burger{
-    background: transparent;
+    background: var(--white);
     border: 2px solid var(--accent);
     display: flex;
     flex-direction: column;
@@ -174,11 +176,9 @@ body{
     border-radius: 10px;
     transition: 1s;
     position: relative;
+    z-index: 5;
 }
-.burger-link{
-    font-size: 20px;
-    font-weight: 400;
-}
+
 .burger:before,
 .burger:after{
     content: '';
