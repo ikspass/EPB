@@ -75,4 +75,7 @@
     .about-company-text{
         width: 100%;
     }
+    .contacts{
+        display: none;
+    }
 }

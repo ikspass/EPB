@@ -160,4 +160,7 @@
         width: 130px;
         height: 130px;
     }
+    .bakery-menu-item-name{
+        width: min-content;
+    }
 } 
