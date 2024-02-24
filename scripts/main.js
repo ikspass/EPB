@@ -1,5 +1,15 @@
 document.getElementById('header').innerHTML =
 `
+    <div class="modal-window-container">
+        <div class="header-modal-window-content" id="header-modal-window">
+        </div>
+        <button id="close-header-modal-window" class="close-modal-window" onclick="closeHeaderModalWindow()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M1 11L11 1M1 1L11 11" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
     <div class="burger-nav-menu normal-text bold" id="burger-menu">
         <div class="burger-nav">
             <div class="burger-nav-items">
@@ -106,6 +116,7 @@ document.getElementById('header').innerHTML =
             </div>
         </div>
     </div>
+    
 `
 
 document.getElementById('contacts').innerHTML =
@@ -130,67 +141,46 @@ document.getElementById('contacts').innerHTML =
     </div>
 `
 
-function closeModalWindow(){
+function closeHeaderModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
-    document.getElementById('delivery-modal-window').style.display = 'none';
-    document.getElementById('vacancies-modal-window').style.display = 'none';
-    document.getElementById('close-modal-window').style.display = 'none';
+    document.getElementById('header-modal-window').style.display = 'none';
+    document.getElementById('close-header-modal-window').style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
 
-document.getElementById('vacancies').addEventListener('click', function(){
-    document.getElementById('modal-window').innerHTML =
-    `
-        <div class="vacancies-modal-window" id="vacancies-modal-window">
+let vacanciesLinks = document.querySelectorAll('#vacancies');
+vacanciesLinks.forEach((element)=>{
+    element.addEventListener('click', function(){
+        console.log('Вакансии')
+        document.getElementById('header-modal-window').innerHTML =
+        `
             <div class="big-text">Вопросы по трудоустройству и сотрудничеству -</div>
             <div class="big-text accent">easypeasybakery@yandex.by</div>
-        </div>
-
-        <div class="vacancies-modal-window" id="delivery-modal-window">
-            <div class="big-text">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
-        </div>
-
-        <button class="close-modal-window" id="close-modal-window">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M1 11L11 1M1 1L11 11" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-    `
-
-    document.getElementById('backdrop').style.display = 'block';
-    document.getElementById('vacancies-modal-window').style.display = 'flex';
-    document.getElementById('close-modal-window').style.display = 'flex';
-    document.getElementById('body').style.overflow = 'hidden';
-
-    document.getElementById('close-modal-window').addEventListener('click', closeModalWindow);
-});
-
-document.getElementById('delivery').addEventListener('click', function(){
-    document.getElementById('modal-window').innerHTML =
-    `
-        <div class="vacancies-modal-window" id="vacancies-modal-window">
-            <div class="big-text">Вопросы по трудоустройству и сотрудничеству -</div>
-            <div class="big-text accent">easypeasybakery@yandex.by</div>
-        </div>
-
-        <div class="vacancies-modal-window" id="delivery-modal-window">
-            <div class="big-text">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
-        </div>
-
-        <button class="close-modal-window" id="close-modal-window">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M1 11L11 1M1 1L11 11" stroke="#323232" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-    `
+        `
     
-    document.getElementById('backdrop').style.display = 'block';
-    document.getElementById('delivery-modal-window').style.display = 'flex';
-    document.getElementById('close-modal-window').style.display = 'flex';
-    document.getElementById('body').style.overflow = 'hidden';
+        document.getElementById('backdrop').style.display = 'block';
+        document.getElementById('header-modal-window').style.display = 'flex';
+        document.getElementById('close-header-modal-window').style.display = 'flex';
+        document.getElementById('body').style.overflow = 'hidden';
+    });
+})
 
-    document.getElementById('close-modal-window').addEventListener('click', closeModalWindow);
-});
+let deliveryLinks = document.querySelectorAll('#delivery');
+deliveryLinks.forEach((element)=>{
+    element.addEventListener('click', function(){
+        console.log('Доставка')
+
+        document.getElementById('header-modal-window').innerHTML =
+        `
+            <div class="big-text">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
+        `
+        
+        document.getElementById('backdrop').style.display = 'block';
+        document.getElementById('header-modal-window').style.display = 'flex';
+        document.getElementById('close-header-modal-window').style.display = 'flex';
+        document.getElementById('body').style.overflow = 'hidden';
+    });
+})
 
 let burgerButton = document.getElementById('burger-button');
 let burgerMenu = document.getElementById('burger-menu');

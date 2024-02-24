@@ -11,201 +11,186 @@ let previews = {
 }
 
 let quantity;
-let modalNameItem = document.getElementById('modal-name-item');
-let modalDescriptionItem = document.getElementById('modal-description-item');
-let modalImageItem = document.getElementById('modal-image-item');
-let modalPriceItem = document.getElementById('modal-price-item');
-let modalQuantityItem = document.getElementById('product-quantity-item');
+let modalName = document.getElementById('modal-name');
+let modalDescription = document.getElementById('modal-description');
+let modalImage = document.getElementById('modal-image');
 
-let modalNameKg = document.getElementById('modal-name-kg');
-let modalDescriptionKg = document.getElementById('modal-description-kg');
-let modalImageKg = document.getElementById('modal-image-kg');
-let modalPriceKg_1 = document.getElementById('modal-price-kg-1');
-let modalWeightKg_1 = document.getElementById('modal-weight-kg-1');
-let modalPriceKg_2 = document.getElementById('modal-price-kg-2');
-let modalWeightKg_2 = document.getElementById('modal-weight-kg-2');
-let modalPriceForKg_1 = document.getElementById('modal-price-for-kg-1');
-let modalPriceForKg_2 = document.getElementById('modal-price-for-kg-2');
+let modalWindowOptions = document.getElementById('product-modal-window-options');
 
 
-function closeProductModalWindow(type){
+function closeProductModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
-    document.getElementById(`products-modal-window-${type}`).style.display = 'none';
-    document.getElementById(`close-modal-window-${type}`).style.display = 'none';
+    document.getElementById(`products-modal-window`).style.display = 'none';
+    document.getElementById(`close-modal-window`).style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
 
-function openProductModalWindowKg(name){
-    let modalWindow = document.getElementById('modal-window-item');
+
+function openProductModalWindow(name, type){
+    let modalWindow = document.getElementById('modal-window');
     let screenWidth = window.innerWidth;
     let screenHeight = window.innerHeight;
     let modalWindowWidth = modalWindow.offsetWidth;
     let modalWindowHeight = modalWindow.offsetHeight;
 
-    document.getElementById('backdrop').style.display = 'block';
-    document.getElementById('products-modal-window-kg').style.display = 'flex';
-    document.getElementById('close-modal-window-kg').style.display = 'block';
-    document.getElementById('body').style.overflow = 'hidden';
-
     modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
     modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
 
-    previews[menuPage].forEach(item => {
-        if(item.name == name){
-            modalNameKg.innerText = item.name;
-            modalDescriptionKg.innerText = item.description;
-            modalImageKg.src = `styles/images/${item.name}.jpg`;
-            modalPriceKg_1.innerText = item.price_1.toFixed(2);
-            modalPriceKg_2.innerText = item.price_2.toFixed(2);
-            modalWeightKg_1.innerText = item.weight_1;
-            modalWeightKg_2.innerText = item.weight_2;
-            modalPriceForKg_1.innerText = (item.price_1 / item.weight_1).toFixed(2);
-            modalPriceForKg_2.innerText = (item.price_2 / item.weight_2).toFixed(2);
+    console.log(modalName)
+    modalName.innerText = name;
+    modalImage.src = `styles/images/${name}.jpg`;
+
+    if (type == 'item'){
+        document.getElementById('quantity-tools').style.display = 'flex';
+
+        modalWindowOptions.innerHTML = 
+        `
+        <div class="product-modal-window-total big-text bold">
+            <div>Сумма:</div>
+            <div class="modal-price-container">
+                <div><span id="modal-price-item"></span> руб.</div>
+            </div>
+        </div>
+        `
+        let modalPriceItem = document.getElementById('modal-price-item');
+        let modalQuantityItem = document.getElementById('product-quantity-item');
+
+        quantity = 1;
+    
+        if (window.matchMedia("(max-width: 694px)").matches){
+            document.getElementById('backdrop').style.display = 'block';
+            document.getElementById('products-modal-window').style.display = 'flex';
+            console.log(document.getElementById('products-modal-window'))
+            document.getElementById('body').style.overflow = 'hidden';
         }
-    });
+        else{
+            document.getElementById('backdrop').style.display = 'block';
+            document.getElementById('products-modal-window').style.display = 'flex';
+            document.getElementById('close-modal-window').style.display = 'block';
+            console.log(document.getElementById('products-modal-window'))
 
-    let addToBasketButtonKg = document.getElementById('add-to-basket-kg');
-    addToBasketButtonKg.replaceWith(addToBasketButtonKg.cloneNode(true));
-    addToBasketButtonKg = document.getElementById('add-to-basket-kg');
-
-    addToBasketButtonKg.addEventListener('click', function(){
-        let basketItem = {};
-        let weight;
+            document.getElementById('body').style.overflow = 'hidden';
+        }
+    
         let price;
-
-        let selectedRadioElement = document.querySelector('input[name="radio"]:checked');
-        let selectedRadio = selectedRadioElement ? selectedRadioElement.id : null;
-        if (selectedRadio == 'modal-weight-radio-1'){
-            weight = 'weight_1';
-            price = 'price_1';
-        }
-        else if (selectedRadio == 'modal-weight-radio-2'){
-            weight = 'weight_2';
-            price = 'price_2';
-        }
-
+    
         previews[menuPage].forEach(item => {
             if(item.name == name){
-                basketItem.name = item.name;
-                basketItem.description = item.description;
-                basketItem.price = item[price]; 
-                basketItem.quantity = item[weight];
-                basketItem.type = 'kilograms';
+                modalDescription.innerText = item.description;
+                modalPriceItem.innerText = item.price.toFixed(2);
+                price = item.price;
             }
-        })
-        console.log(basketItem);
-
+        });
     
-        //JSON ЧАСТЬ
-        if (!localStorage.getItem('basketListData')) {
-            let basketListData = [];
-            localStorage.setItem('basketListData', JSON.stringify(basketListData));
-        }
-        let basketList = JSON.parse(localStorage.getItem('basketListData'));
+        // КНОПКИ КОЛИЧЕСТВА
+        modalQuantityItem.innerText = quantity;
+    
+        let plusButton = document.getElementById('quantity-plus-item');
+        plusButton.replaceWith(plusButton.cloneNode(true));
+        plusButton = document.getElementById('quantity-plus-item');
+    
+        let minusButton = document.getElementById('quantity-minus-item');
+        minusButton.replaceWith(minusButton.cloneNode(true));
+        minusButton = document.getElementById('quantity-minus-item');
+    
+        plusButton.addEventListener('click', function(){
+            quantity += 1;
+            if(quantity > 20) quantity = 20;
+            else if(quantity < 1) quantity = 1;
+            else{
+                modalPriceItem.innerText = (price * quantity).toFixed(2);
+            }
+            modalQuantityItem.innerText = quantity;
+        })    
+    
+        minusButton.addEventListener('click', function(){
+            quantity -= 1;
+            if(quantity > 20) quantity = 20;
+            else if(quantity < 1) quantity = 1;
+            else{
+                modalPriceItem.innerText = (price * quantity).toFixed(2);
+            }
+            modalQuantityItem.innerText = quantity;
+        })
+    
+        document.getElementById('close-modal-window').addEventListener('click', function(){
+            closeProductModalWindow();
+        })
+    
+        document.getElementById('backdrop').addEventListener('click', function(){
+            closeProductModalWindow();
+        })
+    }
+    else if (type == 'kilograms'){
+        document.getElementById('quantity-tools').style.display = 'none';
 
-        let existingItem = basketList.find(element => element.name == basketItem.name);
+        modalWindowOptions.innerHTML = 
+        `
+        <div class="modal-radio">
+            <div class="modal-form-radio">
+                <input type="radio" id="modal-weight-radio-1" name="radio" checked>
+                <div class="radio-container">
+                    <div class="big-text product-modal-window-total">
+                        <label class="modal-radio " for="modal-weight-radio-1">Вес: <span id="modal-weight-kg-1"></span> кг.</label>
+                        <div><span id="modal-price-kg-1">0</span> руб.</div>
+                    </div>
+                    <div class="grey normal-text price-kg">Цена за килограмм изделия - <span id="modal-price-for-kg-1">0</span> руб</div>
+                </div>
+            </div>
+            <div class="modal-form-radio">
+                <input type="radio" id="modal-weight-radio-2" name="radio">
+                <div>
+                    <div class="big-text product-modal-window-total">
+                        <label class="modal-radio " for="modal-weight-radio-2">Вес: <span id="modal-weight-kg-2"></span> кг.</label>
+                        <div class="modal-price"><span id="modal-price-kg-2">0</span> руб.</div>
+                    </div>
+                    <div class="grey normal-text price-kg">Цена за килограмм изделия - <span id="modal-price-for-kg-2">0</span> руб</div>
+                </div>
+            </div>
+        </div>
+        `
+        let modalPriceKg_1 = document.getElementById('modal-price-kg-1');
+        let modalWeightKg_1 = document.getElementById('modal-weight-kg-1');
+        let modalPriceKg_2 = document.getElementById('modal-price-kg-2');
+        let modalWeightKg_2 = document.getElementById('modal-weight-kg-2');
+        let modalPriceForKg_1 = document.getElementById('modal-price-for-kg-1');
+        let modalPriceForKg_2 = document.getElementById('modal-price-for-kg-2');
 
-        if (existingItem) {
-            previews[menuPage].forEach(item => {
-                if(item.name == name){
-                    existingItem.price = item[price]; 
-                    existingItem.quantity = item[weight]; 
-                }
-            })
-
-        }
-        else {
-            // Если элемента еще нет, добавляем его в массив
-            basketList.push(basketItem);
-        }
-        localStorage.setItem('basketListData', JSON.stringify(basketList));
-        closeProductModalWindow('kg');
-    });
-
-    document.getElementById('close-modal-window-kg').addEventListener('click', function(){
-        closeProductModalWindow('kg')
-    })
-
+        let modalWindow = document.getElementById('modal-window');
+        let screenWidth = window.innerWidth;
+        let screenHeight = window.innerHeight;
+        let modalWindowWidth = modalWindow.offsetWidth;
+        let modalWindowHeight = modalWindow.offsetHeight;
+    
+        document.getElementById('backdrop').style.display = 'block';
+        document.getElementById('products-modal-window').style.display = 'flex';
+        document.getElementById('close-modal-window').style.display = 'block';
+        document.getElementById('body').style.overflow = 'hidden';
+    
+        modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
+        modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
+    
+        previews[menuPage].forEach(item => {
+            if(item.name == name){
+                modalDescription.innerText = item.description;
+                modalPriceKg_1.innerText = item.price_1.toFixed(2);
+                modalPriceKg_2.innerText = item.price_2.toFixed(2);
+                modalWeightKg_1.innerText = item.weight_1;
+                modalWeightKg_2.innerText = item.weight_2;
+                modalPriceForKg_1.innerText = (item.price_1 / item.weight_1).toFixed(2);
+                modalPriceForKg_2.innerText = (item.price_2 / item.weight_2).toFixed(2);
+            }
+        });
+    
+        document.getElementById('close-modal-window').addEventListener('click', function(){
+            closeProductModalWindow()
+        })
+    }
 }
 
-function openProductModalWindowItem(name){
-    quantity = 1;
 
-    let modalWindow = document.getElementById('modal-window-item');
-    let screenWidth = window.innerWidth;
-    let screenHeight = window.innerHeight;
-    let modalWindowWidth = modalWindow.offsetWidth;
-    let modalWindowHeight = modalWindow.offsetHeight;
-
-    if (window.matchMedia("(max-width: 694px)").matches){
-        document.getElementById('backdrop').style.display = 'block';
-        document.getElementById('products-modal-window-item').style.display = 'flex';
-        document.getElementById('body').style.overflow = 'hidden';
-    }
-    else{
-        document.getElementById('backdrop').style.display = 'block';
-        document.getElementById('products-modal-window-item').style.display = 'flex';
-        document.getElementById('close-modal-window-item').style.display = 'block';
-        document.getElementById('body').style.overflow = 'hidden';
-    }
-    modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
-    modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
-
-    let price;
-
-    previews[menuPage].forEach(item => {
-        if(item.name == name){
-            modalNameItem.innerText = item.name;
-            modalDescriptionItem.innerText = item.description;
-            modalImageItem.src = `styles/images/${item.name}.jpg`;
-            modalPriceItem.innerText = item.price.toFixed(2);
-            price = item.price;
-        }
-    });
-
-    // КНОПКИ КОЛИЧЕСТВА
-    modalQuantityItem.innerText = quantity;
-
-    let plusButton = document.getElementById('quantity-plus-item');
-    plusButton.replaceWith(plusButton.cloneNode(true));
-    plusButton = document.getElementById('quantity-plus-item');
-
-    let minusButton = document.getElementById('quantity-minus-item');
-    minusButton.replaceWith(minusButton.cloneNode(true));
-    minusButton = document.getElementById('quantity-minus-item');
-
-    plusButton.addEventListener('click', function(){
-        quantity += 1;
-        if(quantity > 20) quantity = 20;
-        else if(quantity < 1) quantity = 1;
-        else{
-            modalPriceItem.innerText = (price * quantity).toFixed(2);
-        }
-        modalQuantityItem.innerText = quantity;
-    })    
-
-    minusButton.addEventListener('click', function(){
-        quantity -= 1;
-        if(quantity > 20) quantity = 20;
-        else if(quantity < 1) quantity = 1;
-        else{
-            modalPriceItem.innerText = (price * quantity).toFixed(2);
-        }
-        modalQuantityItem.innerText = quantity;
-    })
-
-    document.getElementById('close-modal-window-item').addEventListener('click', function(){
-        closeProductModalWindow('item');
-    })
-
-    document.getElementById('backdrop').addEventListener('click', function(){
-        closeProductModalWindow('item');
-    })
-}
-
-// ДОБАВИТЬ ЭЛЕМЕНТ
+// ДОБАВИТЬ ЭЛЕМЕНТ НА СТРАНИЦУ
 function addItem(name, price, type){
-    let productType;
     if(type == 'item'){
         productType = 'Item'
     }
@@ -220,71 +205,17 @@ function addItem(name, price, type){
 
     productsItem.innerHTML = 
     `
-    <div onclick="openProductModalWindow${productType}('${name}')" class="products-item-image">
+    <div onclick="openProductModalWindow('${name}','${type}')" class="products-item-image">
         <img src="styles/images/${name}.jpg" alt="${name}">
     </div>
     <div class="big-text mobile-normal-text bold products-item-name">${name}</div>
         <div class="products-item-options">
             <div class="big-text mobile-normal-text bold"><span>${price.toFixed(2)}</span> руб.</div>
-            <button class="normal-main-buttons desktop-tablet" onclick="openProductModalWindow${productType}('${name}')">В корзину</button>
+            <button class="normal-main-buttons desktop-tablet" onclick="openProductModalWindow('${name}','${type}')">В корзину</button>
         </div>
     <div class="products-separator"></div>
     `
 }
-
-// ДОБАВИТЬ В КОРЗИНУ
-    // KG
- 
-    
-    //ITEM
-    let addToBasketButtonItem = document.getElementById('add-to-basket-item');
-    addToBasketButtonItem.replaceWith(addToBasketButtonItem.cloneNode(true));
-    addToBasketButtonItem = document.getElementById('add-to-basket-item');
-
-    addToBasketButtonItem.addEventListener('click', function(){
-        let basketItem = {};
-                    
-        previews[menuPage].forEach(item => {
-            if(item.name == modalNameItem.innerText){
-                basketItem.name = item.name;
-                basketItem.description = item.description;
-                basketItem.price = item.price;
-                basketItem.quantity = quantity;
-                basketItem.type = 'item';
-            }
-        })
-    
-        //JSON ЧАСТЬ
-        if (!localStorage.getItem('basketListData')) {
-            let basketListData = [];
-            localStorage.setItem('basketListData', JSON.stringify(basketListData));
-        }
-    
-        let basketList = JSON.parse(localStorage.getItem('basketListData'));
-    
-        let existingItem = basketList.find(element => element.name == basketItem.name);
-
-        if (existingItem) {
-            console.log('уже есть в корзине')
-            // Если элемент уже существует, увеличиваем его количество
-            if ((existingItem.quantity + basketItem.quantity) > 20){
-                console.log('сумма больше 20')
-                existingItem.quantity = 20;
-            }
-            else{
-                console.log('сумма меньше 20')
-                existingItem.quantity += basketItem.quantity;
-            }
-        }
-        else {
-            // Если элемента еще нет, добавляем его в массив
-            basketList.push(basketItem);
-        }
-        console.log(basketList);
-        localStorage.setItem('basketListData', JSON.stringify(basketList));
-
-        closeProductModalWindow('item');
-    });
 
 // JSON
 fetch('./scripts/products.json')

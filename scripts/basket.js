@@ -191,7 +191,7 @@ function checkout(){
         document.getElementById('close-modal-window').style.display = 'none';
         document.getElementById('body').style.overflow = 'visible';
 
-        document.getElementById('phone-number').value = '';
+        document.getElementById('phone-number').value = '+375';
         document.getElementById('email').value = '';
     });
 }

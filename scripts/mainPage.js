@@ -1,13 +1,16 @@
 let offset = 0;
 let slideWidth = document.getElementById('slide').offsetWidth;
-let maxSlideWidth = slideWidth * 2;
+
+let slidesCount = 2; // slidesCount = количество слайдов - 1
+
+let maxSlideWidth = slideWidth * slidesCount;
 
 const sliderLine = document.querySelector('.slides');
 
 
 window.addEventListener('resize', function(){
     slideWidth = document.getElementById('slide').offsetWidth;
-    maxSlideWidth = slideWidth * 2;
+    maxSlideWidth = slideWidth * slidesCount;
     offset = 0;
     sliderLine.style.left = -offset + 'px';
     makeTimer();
@@ -30,38 +33,7 @@ function makeTimer(){
 }
 
 if (window.matchMedia("(min-width: 1200px) and (max-width: 1920px)").matches){
-    document.addEventListener('DOMContentLoaded', function() {
-        var elements = document.querySelectorAll('.image-about');
-        
-        elements.forEach(function(element) {
-        var img = new Image();
-    
-        img.src = window.getComputedStyle(element).backgroundImage.slice(4, -1).replace(/"/g, "");
-        img.width = img.width * 1.1;
-        img.height = img.height * 1.1;
-
-
-        img.onload = function() {
-            var width = this.width;
-            var height = this.height;
-    
-            element.style.backgroundSize = width + 'px ' + height + 'px';
-        }
-        element.style.transition = 'background-size 0.5s ease';
-
-        element.addEventListener('mouseover', function() {
-            var hoverWidth = img.width * 0.9;
-            var hoverHeight = img.height * 0.9;
-            element.style.backgroundSize = hoverWidth + 'px ' + hoverHeight + 'px';
-        });
-    
-        element.addEventListener('mouseout', function() {
-            element.style.backgroundSize = img.width + 'px ' + img.height + 'px';
-        });
-        });
-    });
-
-    document.querySelector('#right-button').addEventListener('click', function(){
+     document.querySelector('#right-button').addEventListener('click', function(){
         offset += slideWidth;
         makeTimer();
         if (offset > maxSlideWidth) offset = 0;

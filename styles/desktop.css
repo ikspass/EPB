@@ -150,7 +150,7 @@ body{
     justify-content: end;
 }
 .burger-nav-menu{
-    padding: 26px 20px 70px 20px;
+    padding: 74px 20px 70px 40px;
     width: max-content;
     display: flex;
     justify-content: center;
@@ -175,6 +175,10 @@ body{
     border-radius: 10px;
     transition: 1s;
     position: relative;
+}
+.burger-link{
+    font-size: 24px;
+    font-weight: 400;
 }
 .burger:before,
 .burger:after{
@@ -211,7 +215,7 @@ body{
 .burger-nav-items{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
 }
 .burger-nav-item{
     display: flex;
@@ -357,7 +361,6 @@ a.nav-item{
 .slide-image{
     width: 45vw;
     height: 500px;
-    background: var(--grey);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -778,9 +781,14 @@ input[type=text]{
     display: flex;
     flex-direction: row;
 }
+.modal-button-container{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
 
 /* VACANCIES */
-.vacancies-modal-window{
+.header-modal-window-content{
     background: var(--white);
     border-radius: 10px;
     padding: 20px 70px;
@@ -810,7 +818,6 @@ input[type=text]{
     border: 2px solid var(--white);
     background: var(--white);
     border-radius: 100px;
-    display: flex;
     height: min-content;
     justify-content: center;
     align-items: center;
@@ -921,6 +928,13 @@ label.normal-main-buttons{
     margin-left: 25px;
 }
 
+#phone-number::before{
+    content: "";
+    width: 50px;
+    display: block;
+    height: 50px;
+    background: var(--black);
+}
 
 .modal-form-radio input[type = radio] {
 	display: none;

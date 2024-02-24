@@ -15,3 +15,11 @@ for (var i = 0; i < inputs.length; i++) {
         button.disabled = !allFilled;
     });
 }
+
+document.getElementById('phone-number').value = '+375';
+function inputHandler(e) {
+    let input = e.target;
+    if (!input.value.startsWith('+375')) {
+        input.value = '+375';
+    }
+}

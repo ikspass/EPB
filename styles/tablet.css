@@ -35,6 +35,9 @@
         width: 334px;
         height: 324px;
     }
+    .contacts-container{
+        height: 100%;
+    }
 
     /* PRODUCTS MENU */
     .products-item{
