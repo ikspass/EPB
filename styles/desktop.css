@@ -102,12 +102,7 @@ body{
     font-family: 'Montserrat';
     text-transform: uppercase;
 }
-.small-text{
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14px;
-}
-
+.small-text,
 .normal-text{
     font-size: 16px;
     font-weight: 400;
