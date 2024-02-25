@@ -790,7 +790,13 @@ input[type=text]{
     text-align: center;
     box-sizing: border-box;
 }
-
+.mobile-close-modal-window{
+    background-color: var(--white);
+    border-radius: 100px;
+    display: none;
+    border: 0;
+    padding: 10px 0;
+}
 .modal-window-container{
     position: fixed;
     top: 50%;

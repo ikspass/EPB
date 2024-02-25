@@ -47,13 +47,6 @@
     .products-item-image{
         height: 200px;
     }
-    .mobile-close-modal-window{
-        background-color: var(--white);
-        border-radius: 100px;
-        display: none;
-        border: 0;
-        padding: 10px 0;
-    }
     .close-modal-window{
         display: none;
     }
