@@ -1,5 +1,6 @@
 let productsList = document.getElementById('products-list');
 
+// ОТОБРАЖЕНИЕ ТОВАРА ИЗ БД
 function addItem(name, price){
     let productsItem = document.createElement('div');
     productsItem.className = 'products-item';
@@ -18,6 +19,8 @@ function addItem(name, price){
     <div class="products-separator"></div>
     `
 }
+
+// МАСИВ ИЗ БД
 fetch('./scripts/products.json')
 .then(response => response.json())
 .then(data => {

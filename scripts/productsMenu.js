@@ -1,4 +1,5 @@
 // ВЫБРАННАЯ КАТЕГОРИЯ
+// ПЕРЕМЕННЫЕ PRICE И QUANTITY СКОРЕЕ ВСЕГО ТЕБЕ НЕ ПОНАДОБЯТСЯ, КАК И ВНОПКИ КОЛИЧЕСТВА
 let menuPage = '';
 
 if(location.href.match(/[^/]+\.html/i)[0].split('.')[0] == 'productsBakery') menuPage = 'bakery';
@@ -11,13 +12,14 @@ let previews = {
 }
 
 let quantity;
+
 let modalName = document.getElementById('modal-name');
 let modalDescription = document.getElementById('modal-description');
 let modalImage = document.getElementById('modal-image');
 
 let modalWindowOptions = document.getElementById('product-modal-window-options');
 
-
+// ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО ТОВАРА
 function closeProductModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById(`products-modal-window`).style.display = 'none';
@@ -26,7 +28,7 @@ function closeProductModalWindow(){
     document.getElementById('body').style.overflow = 'visible';
 }
 
-
+// ОТКРЫТЬ МОДАЛЬНОЕ ОКНО ТОВАРА
 function openProductModalWindow(name, type){
     let modalWindow = document.getElementById('modal-window');
     let screenWidth = window.innerWidth;
@@ -91,7 +93,7 @@ function openProductModalWindow(name, type){
         let minusButton = document.getElementById('quantity-minus-item');
         minusButton.replaceWith(minusButton.cloneNode(true));
         minusButton = document.getElementById('quantity-minus-item');
-    
+        // КНОПКА ПЛЮС
         plusButton.addEventListener('click', function(){
             quantity += 1;
             if(quantity > 20) quantity = 20;
@@ -101,7 +103,7 @@ function openProductModalWindow(name, type){
             }
             modalQuantityItem.innerText = quantity;
         })    
-    
+        // КНОПКА МИНУС
         minusButton.addEventListener('click', function(){
             quantity -= 1;
             if(quantity > 20) quantity = 20;
@@ -111,11 +113,11 @@ function openProductModalWindow(name, type){
             }
             modalQuantityItem.innerText = quantity;
         })
-    
+        
+        // КНОПКИ ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
         document.getElementById('close-modal-window').addEventListener('click', function(){
             closeProductModalWindow();
         })
-    
         document.getElementById('backdrop').addEventListener('click', function(){
             closeProductModalWindow();
         })
@@ -151,6 +153,7 @@ function openProductModalWindow(name, type){
             </div>
         </div>
         `
+        
         let modalPriceKg_1 = document.getElementById('modal-price-kg-1');
         let modalWeightKg_1 = document.getElementById('modal-weight-kg-1');
         let modalPriceKg_2 = document.getElementById('modal-price-kg-2');
@@ -191,6 +194,8 @@ function openProductModalWindow(name, type){
                 modalPriceForKg_2.innerText = (item.price_2 / item.weight_2).toFixed(2);
             }
         });
+
+        // КНОПКИ ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
         document.getElementById('close-modal-window').addEventListener('click', function(){
             closeProductModalWindow();
         })
@@ -202,7 +207,6 @@ function openProductModalWindow(name, type){
         })
     }
 }
-
 
 // ДОБАВИТЬ ЭЛЕМЕНТ НА СТРАНИЦУ
 function addItem(name, price, type){
@@ -232,7 +236,8 @@ function addItem(name, price, type){
     `
 }
 
-// JSON
+// В PREVIEWS НУЖНО ЗАСУНУТЬ ДАННЫЕ ИЗ БД!!!
+// JSON 
 fetch('./scripts/products.json')
 .then(response => response.json())
 .then(data => {
@@ -254,5 +259,3 @@ fetch('./scripts/products.json')
         }
     });
 });
-
-

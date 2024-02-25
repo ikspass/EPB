@@ -1,3 +1,4 @@
+// ОТОБРАЖЕНИЕ HEDER
 document.getElementById('header').innerHTML =
 `
     <div class="modal-window-container">
@@ -125,7 +126,7 @@ document.getElementById('header').innerHTML =
     </div>
     
 `
-
+// ОТОБРАЖЕНИЕ ФУТЕРА
 document.getElementById('contacts').innerHTML =
 `
     <div class="contacts">
@@ -147,14 +148,14 @@ document.getElementById('contacts').innerHTML =
     <div class="big-text"><span class="bold">Задать вопрос -</span> easypeasybakery@yandex.by</div>
     </div>
 `
-
+// ЗАКРЫТЬ ОКНО ВАКАНСИЙ/ДОСТАВКИ
 function closeHeaderModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById('header-modal-window').style.display = 'none';
     document.getElementById('close-header-modal-window').style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
-
+// КНОПКА ВАКАНСИИ
 let vacanciesLinks = document.querySelectorAll('#vacancies');
 vacanciesLinks.forEach((element)=>{
     element.addEventListener('click', function(){
@@ -171,7 +172,7 @@ vacanciesLinks.forEach((element)=>{
         document.getElementById('close-header-modal-window').style.display = 'flex';
     });
 })
-
+// КНОПКА ДОСТАВКА
 let deliveryLinks = document.querySelectorAll('#delivery');
 deliveryLinks.forEach((element)=>{
     element.addEventListener('click', function(){
@@ -191,12 +192,12 @@ deliveryLinks.forEach((element)=>{
 
 let burgerButton = document.getElementById('burger-button');
 let burgerMenu = document.getElementById('burger-menu');
-
+// ОТКРЫТЬ МЕНЮ ПО НАЖАТИЮ НА КНОПКУ
 burgerButton.addEventListener('click', function(){
     burgerMenu.classList.toggle('active');
     burgerButton.classList.toggle('active')
 });
-
+// ЗАКРЫТЬ МЕНЮ ПРИ ПЕРЕХОДЕ ПО ССЫЛКЕ
 let burgerLinks = document.querySelectorAll(".burger-nav > .burger-link");
 for (let i = 0; i < burgerLinks.length; i++) {
     burgerLinks[i].onclick = function(){

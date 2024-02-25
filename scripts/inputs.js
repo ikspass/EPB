@@ -1,5 +1,7 @@
 var inputs = document.getElementsByClassName('main-input');
 var button = document.getElementById('aссept-checkout');
+var emailInput = document.getElementById('email');
+var phoneNumberInput = document.getElementById('phone-number');
 
 button.disabled = true;
 
@@ -12,9 +14,13 @@ for (var i = 0; i < inputs.length; i++) {
                 break;
             }
         }
+        if (emailInput.value.length <= 15 || phoneNumberInput.value.length != 13) {
+            allFilled = false;
+        }
         button.disabled = !allFilled;
     });
 }
+
 
 document.getElementById('phone-number').value = '+375';
 function inputHandler(e) {

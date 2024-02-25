@@ -2,7 +2,7 @@ let slidesList = [];
 
 let slidesListContainer = document.getElementById('slides-list-container');
 
-
+// ОТОЮРАЖЕНИЕ СЛАЙДОВ ИЗ БД
 fetch('./scripts/slides.json')
 .then(response => response.json())
 .then(data => {
