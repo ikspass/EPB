@@ -22,6 +22,7 @@ function closeProductModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById(`products-modal-window`).style.display = 'none';
     document.getElementById(`close-modal-window`).style.display = 'none';
+    document.getElementById(`mobile-close-modal-window`).style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
 
@@ -60,15 +61,13 @@ function openProductModalWindow(name, type){
         if (window.matchMedia("(max-width: 694px)").matches){
             document.getElementById('backdrop').style.display = 'block';
             document.getElementById('products-modal-window').style.display = 'flex';
-            console.log(document.getElementById('products-modal-window'))
+            document.getElementById('mobile-close-modal-window').style.display = 'block';
             document.getElementById('body').style.overflow = 'hidden';
         }
         else{
             document.getElementById('backdrop').style.display = 'block';
             document.getElementById('products-modal-window').style.display = 'flex';
             document.getElementById('close-modal-window').style.display = 'block';
-            console.log(document.getElementById('products-modal-window'))
-
             document.getElementById('body').style.overflow = 'hidden';
         }
     
@@ -120,6 +119,9 @@ function openProductModalWindow(name, type){
         document.getElementById('backdrop').addEventListener('click', function(){
             closeProductModalWindow();
         })
+        document.getElementById('mobile-close-modal-window').addEventListener('click', function(){
+            closeProductModalWindow()
+        })
     }
     else if (type == 'kilograms'){
         document.getElementById('quantity-tools').style.display = 'none';
@@ -162,10 +164,18 @@ function openProductModalWindow(name, type){
         let modalWindowWidth = modalWindow.offsetWidth;
         let modalWindowHeight = modalWindow.offsetHeight;
     
-        document.getElementById('backdrop').style.display = 'block';
-        document.getElementById('products-modal-window').style.display = 'flex';
-        document.getElementById('close-modal-window').style.display = 'block';
-        document.getElementById('body').style.overflow = 'hidden';
+        if (window.matchMedia("(max-width: 694px)").matches){
+            document.getElementById('backdrop').style.display = 'block';
+            document.getElementById('products-modal-window').style.display = 'flex';
+            document.getElementById('mobile-close-modal-window').style.display = 'block';
+            document.getElementById('body').style.overflow = 'hidden';
+        }
+        else{
+            document.getElementById('backdrop').style.display = 'block';
+            document.getElementById('products-modal-window').style.display = 'flex';
+            document.getElementById('close-modal-window').style.display = 'block';
+            document.getElementById('body').style.overflow = 'hidden';
+        }
     
         modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
         modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
@@ -181,8 +191,13 @@ function openProductModalWindow(name, type){
                 modalPriceForKg_2.innerText = (item.price_2 / item.weight_2).toFixed(2);
             }
         });
-    
         document.getElementById('close-modal-window').addEventListener('click', function(){
+            closeProductModalWindow();
+        })
+        document.getElementById('close-modal-window').addEventListener('click', function(){
+            closeProductModalWindow()
+        })
+        document.getElementById('mobile-close-modal-window').addEventListener('click', function(){
             closeProductModalWindow()
         })
     }

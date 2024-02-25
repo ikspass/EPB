@@ -4,13 +4,10 @@
         line-height: 18px;
     }
     .mobile-normal-text,
-    .normal-text{
+    .normal-text,
+    .small-text{
         font-size: 14px;
         line-height: 16px;
-    }
-    .small-text{
-        font-size: 12px;
-        line-height: 14px;
     }
 
     /* .bold{
@@ -113,7 +110,7 @@
     .product-modal-window{
         width: 290px;
         gap: 10px;
-        padding: 12px;
+        padding: 15px;
     }
 
     .product-modal-window-description-container{

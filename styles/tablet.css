@@ -47,12 +47,26 @@
     .products-item-image{
         height: 200px;
     }
+    .mobile-close-modal-window{
+        background-color: var(--white);
+        border-radius: 100px;
+        display: none;
+        border: 0;
+        padding: 10px 0;
+    }
+    .close-modal-window{
+        display: none;
+    }
+    
 
     /* ADD TO BASKET */
     .product-modal-window{
         flex-direction: column;
         width: 480px;
         gap: 15px;
+    }
+    .modal-window-container{
+        flex-direction: column;
     }
 
     .product-modal-window-image{

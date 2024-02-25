@@ -58,9 +58,6 @@ document.getElementById('header').innerHTML =
                     <div class="burger-link grey">Вопросы по трудоустройству и сотрудничеству - easypeasybakery@yandex.by</div>
                 </div>
                 <div>
-                    <div class="burger-link grey">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
-                </div>
-                <div>
                     <a target="_blank" href="https://www.instagram.com/easy_bakery_minsk/" class="instagram big-text">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                             <path d="M1 24.204V8.81628C1 4.95029 4.13401 1.81628 8 1.81628H24C27.866 1.81628 31 4.95029 31 8.81628V24.204C31 28.07 27.866 31.204 24 31.204H8C4.13401 31.204 1 28.07 1 24.204Z" stroke="#323232" stroke-width="2"/>
@@ -170,8 +167,8 @@ vacanciesLinks.forEach((element)=>{
     
         document.getElementById('backdrop').style.display = 'block';
         document.getElementById('header-modal-window').style.display = 'flex';
-        document.getElementById('close-header-modal-window').style.display = 'flex';
         document.getElementById('body').style.overflow = 'hidden';
+        document.getElementById('close-header-modal-window').style.display = 'flex';
     });
 })
 
@@ -187,8 +184,8 @@ deliveryLinks.forEach((element)=>{
         
         document.getElementById('backdrop').style.display = 'block';
         document.getElementById('header-modal-window').style.display = 'flex';
-        document.getElementById('close-header-modal-window').style.display = 'flex';
         document.getElementById('body').style.overflow = 'hidden';
+        document.getElementById('close-header-modal-window').style.display = 'flex';
     });
 })
 

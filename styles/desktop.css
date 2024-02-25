@@ -103,9 +103,9 @@ body{
     text-transform: uppercase;
 }
 .small-text{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 14px;
 }
 
 .normal-text{
@@ -149,13 +149,11 @@ body{
     justify-content: end;
 }
 .burger-nav-menu{
-    padding: 20px 20px 40px 40px;
+    padding: 20px 40px 40px 40px;
     width: 100vw;
     display: flex;
     box-sizing: border-box;
-    justify-content: center;
-    border-right: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
+    border: 2px solid var(--accent);
     position: absolute;
     background: var(--white);
     transition: 0.7s;
@@ -707,11 +705,7 @@ input[type=text]{
 .modal-price{
     width: max-content;
 }
-.modal-radio{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+
 
 .modal-price-container{
     display: flex;
@@ -919,7 +913,8 @@ label.normal-main-buttons{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
+    justify-content: flex-start;
 }
 
 .price-kg{
