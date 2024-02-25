@@ -173,7 +173,7 @@ body{
     border-radius: 10px;
     transition: 1s;
     position: relative;
-    z-index: 5;
+    z-index: 3;
 }
 
 .burger:before,
@@ -672,7 +672,7 @@ input[type=text]{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 4;
     display: none;
 }
 
@@ -685,7 +685,7 @@ input[type=text]{
     display: flex;
     gap: 30px;
     flex-shrink: 0 ;
-    z-index: 4;
+    z-index: 5;
     display: none;
 }
 
@@ -698,7 +698,6 @@ input[type=text]{
     display: flex;
     gap: 30px;
     flex-shrink: 0 ;
-    z-index: 4;
     border: 1px solid var(--grey);
 }
 
@@ -796,7 +795,7 @@ input[type=text]{
     position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 4;
+    z-index: 5;
     transform: translateY(-50%) translateX(-50%);
     display: flex;
     flex-direction: row;
