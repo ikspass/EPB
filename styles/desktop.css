@@ -32,6 +32,8 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
     -webkit-text-fill-color: var(--black) !important;
+    background-color: var(--white);
+    -webkit-box-shadow: 0 0 0 30px var(--white) inset !important;
 }
 
 .tablet,

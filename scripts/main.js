@@ -1,3 +1,4 @@
+// ОТОБРАЖЕНИЕ HEDER
 document.getElementById('header').innerHTML =
 `
     <div class="modal-window-container">
@@ -55,7 +56,7 @@ document.getElementById('header').innerHTML =
                     <a href="aboutCompany.html" class="burger-link">О компании</a>
                 </div>
                 <div>
-                    <div class="burger-link grey">Вопросы по трудоустройству и сотрудничеству - easypeasybakery@yandex.by</div>
+                    <div class="burger-link grey">Вопросы по трудоустройству и сотрудничеству - easypeasybakery@gmail.com</div>
                 </div>
                 <div>
                     <a target="_blank" href="https://www.instagram.com/easy_bakery_minsk/" class="instagram big-text">
@@ -125,11 +126,11 @@ document.getElementById('header').innerHTML =
     </div>
     
 `
-
+// ОТОБРАЖЕНИЕ ФУТЕРА
 document.getElementById('contacts').innerHTML =
 `
     <div class="contacts">
-    <a target="_blank" href="https://www.instagram.com/easy_bakery_minsk/" class="instagram big-text desktop-tablet">
+    <a target="_blank" href="" class="instagram big-text desktop-tablet">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
             <path d="M1 24.204V8.81628C1 4.95029 4.13401 1.81628 8 1.81628H24C27.866 1.81628 31 4.95029 31 8.81628V24.204C31 28.07 27.866 31.204 24 31.204H8C4.13401 31.204 1 28.07 1 24.204Z" stroke="#323232" stroke-width="2"/>
             <path d="M16.1378 23.1224H15.8622C12.2104 23.1224 9.25 20.162 9.25 16.5102C9.25 12.8584 12.2104 9.89795 15.8622 9.89795H16.1378C19.7896 9.89795 22.75 12.8584 22.75 16.5102C22.75 20.162 19.7896 23.1224 16.1378 23.1224Z" stroke="#323232" stroke-width="2"/>
@@ -137,24 +138,24 @@ document.getElementById('contacts').innerHTML =
         </svg>
         <div class="bold">easy_bakery_minsk</div>
     </a>
-    <a target="_blank" href="https://www.instagram.com/easy_bakery_minsk/" class="mobile">
+    <a target="_blank" href="" class="mobile">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
             <path d="M1 24.204V8.81628C1 4.95029 4.13401 1.81628 8 1.81628H24C27.866 1.81628 31 4.95029 31 8.81628V24.204C31 28.07 27.866 31.204 24 31.204H8C4.13401 31.204 1 28.07 1 24.204Z" stroke="#323232" stroke-width="2"/>
             <path d="M16.1378 23.1224H15.8622C12.2104 23.1224 9.25 20.162 9.25 16.5102C9.25 12.8584 12.2104 9.89795 15.8622 9.89795H16.1378C19.7896 9.89795 22.75 12.8584 22.75 16.5102C22.75 20.162 19.7896 23.1224 16.1378 23.1224Z" stroke="#323232" stroke-width="2"/>
             <path d="M25.7653 7.69388H25.7347C25.3289 7.69388 25 7.36494 25 6.95918C25 6.55342 25.3289 6.22449 25.7347 6.22449H25.7653C26.1711 6.22449 26.5 6.55342 26.5 6.95918C26.5 7.36494 26.1711 7.69388 25.7653 7.69388Z" stroke="#323232" stroke-width="2"/>
         </svg>
     </a>
-    <div class="big-text"><span class="bold">Задать вопрос -</span> easypeasybakery@yandex.by</div>
+    <div class="big-text"><span class="bold">Задать вопрос -</span> easypeasybakery@gmail.com</div>
     </div>
 `
-
+// ЗАКРЫТЬ ОКНО ВАКАНСИЙ/ДОСТАВКИ
 function closeHeaderModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById('header-modal-window').style.display = 'none';
     document.getElementById('close-header-modal-window').style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
-
+// КНОПКА ВАКАНСИИ
 let vacanciesLinks = document.querySelectorAll('#vacancies');
 vacanciesLinks.forEach((element)=>{
     element.addEventListener('click', function(){
@@ -162,7 +163,7 @@ vacanciesLinks.forEach((element)=>{
         document.getElementById('header-modal-window').innerHTML =
         `
             <div class="big-text">Вопросы по трудоустройству и сотрудничеству -</div>
-            <div class="big-text accent">easypeasybakery@yandex.by</div>
+            <div class="big-text accent">easypeasybakery@gmail.com</div>
         `
     
         document.getElementById('backdrop').style.display = 'block';
@@ -171,7 +172,7 @@ vacanciesLinks.forEach((element)=>{
         document.getElementById('close-header-modal-window').style.display = 'flex';
     });
 })
-
+// КНОПКА ДОСТАВКА
 let deliveryLinks = document.querySelectorAll('#delivery');
 deliveryLinks.forEach((element)=>{
     element.addEventListener('click', function(){
@@ -191,12 +192,12 @@ deliveryLinks.forEach((element)=>{
 
 let burgerButton = document.getElementById('burger-button');
 let burgerMenu = document.getElementById('burger-menu');
-
+// ОТКРЫТЬ МЕНЮ ПО НАЖАТИЮ НА КНОПКУ
 burgerButton.addEventListener('click', function(){
     burgerMenu.classList.toggle('active');
     burgerButton.classList.toggle('active')
 });
-
+// ЗАКРЫТЬ МЕНЮ ПРИ ПЕРЕХОДЕ ПО ССЫЛКЕ
 let burgerLinks = document.querySelectorAll(".burger-nav > .burger-link");
 for (let i = 0; i < burgerLinks.length; i++) {
     burgerLinks[i].onclick = function(){

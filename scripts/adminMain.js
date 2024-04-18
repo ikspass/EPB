@@ -1,3 +1,4 @@
+// ОТОБРАЖЕНИЕ HEDER У АДМИНА
 document.getElementById('header').innerHTML =
 `
 <a href="index.html" class="logo-container">

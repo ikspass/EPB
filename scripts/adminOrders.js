@@ -2,6 +2,7 @@ let ordersInfoListContainer = document.getElementById('orders-info-list');
 let ordersItemListContainer;
 let ordersInfoList = [];
 
+// ОТОЮРАЖЕНИЕ ЗАКАЗА У АДМИНА
 function addOrderItem(name, price, type, quantity){
     let orderItemContainer = document.createElement('div');
     orderItemContainer.className = 'order-item';
@@ -34,6 +35,7 @@ function addOrderItem(name, price, type, quantity){
     ordersItemListContainer.appendChild(orderItemContainer);
 }
 
+// ОТОБРАЖЕНИЕ ЗАКАЗОВ ИЗ БД
 fetch('./scripts/orders.json')
 .then(response => response.json())
 .then(data => {

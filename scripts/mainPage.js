@@ -1,12 +1,11 @@
+// ФУНКЦИОНАЛ СЛАЙДЕРА
 let offset = 0;
 let slideWidth = document.getElementById('slide').offsetWidth;
-
-let slidesCount = 2; // slidesCount = количество слайдов - 1
+// СЮДА НУЖНО ПОЛУЧИТЬ КОЛИЧЕСТВО СЛАЙДОВ  В БД
+let slidesCount = 1; // slidesCount = на 1 меньше чем кол-во слайдов в бд
 
 let maxSlideWidth = slideWidth * slidesCount;
-
 const sliderLine = document.querySelector('.slides');
-
 
 window.addEventListener('resize', function(){
     slideWidth = document.getElementById('slide').offsetWidth;
@@ -15,7 +14,6 @@ window.addEventListener('resize', function(){
     sliderLine.style.left = -offset + 'px';
     makeTimer();
 });
-
 
 var timer = 0;
 

@@ -10,6 +10,9 @@ let slideImageContainer = document.getElementById('preview-image');
 
 let applyButton = document.getElementById('apply-button');
 
+// СДЕЛАТЬ ОТОБРАЖЕНИЕ В ПРЕДПРОСМОТРЕ ЗАГРУЖЕННОЙ КАРТИНКИ
+
+// КНОПКА ПРИМЕНИТЬ ДЛЯ ПРЕДПРОСМОТРА
 applyButton.addEventListener('click', function(){
     confirmButton.disabled = false;
     slideTitle = document.getElementById('slide-title').value;

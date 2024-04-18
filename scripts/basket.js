@@ -17,7 +17,7 @@ function countTotalSum(){
     }
     document.getElementById('total-price').innerText = totalSum.toFixed(2)
 }
-
+// ОТОЮРАЖЕНИЕ ЭЛЕМЕНТА КОРЗИНЫ
 function addBasketItem(name, price, description, quantity, type){
     let basketListContainer = document.getElementById('basket-list');
 
@@ -90,6 +90,7 @@ function addBasketItem(name, price, description, quantity, type){
 }
 
 // КНОПКИ КОЛИЧЕСТВА
+// КНОПКА ПЛЮС
 function plusProducts(name, price){
     let existingItem = basketList.find(element => element.name == name);
 
@@ -115,7 +116,7 @@ function plusProducts(name, price){
     countTotalSum();
     localStorage.setItem('basketListData', JSON.stringify(basketList));
 }
-
+// КНОПКА МИНУС
 function minusProducts(name, price){
     let existingItem = basketList.find(element => element.name == name);
 
@@ -149,7 +150,7 @@ function deleteBasketItem(name){
     resetItems();
     countTotalSum();
 }
-
+// ОТОБРАЖЕНИЕ ВСЕХ ЭЛЕМЕНТОВ КОРЗИНЫ
 function resetItems(){
     document.getElementById('basket-list').innerHTML = ``;
 
@@ -169,7 +170,17 @@ function resetItems(){
         document.getElementById('empty').style.position = 'static';
     }
 }
+function closeModalWindow(){
+    document.getElementById('backdrop').style.display = 'none';
+    document.getElementById('checkout-modal-window').style.display = 'none';
+    document.getElementById('close-modal-window').style.display = 'none';
+    document.getElementById(`mobile-close-modal-window`).style.display = 'none';
+    document.getElementById('body').style.overflow = 'visible';
 
+    document.getElementById('phone-number').value = '+375';
+    document.getElementById('email').value = '';
+}
+// ОТОБРАЖЕНИЕ ОКНА С ВВОДОМ ПОЧТЫ И НОМЕРА ТЕЛЕФОНА
 function checkout(){
     let modalWindow = document.getElementById('modal-window-container');
     let screenWidth = window.innerWidth;
@@ -180,50 +191,31 @@ function checkout(){
     modalWindow.style.top = (screenHeight / 2 - modalWindowHeight / 2) + 'px';
     modalWindow.style.left = (screenWidth / 2 - modalWindowWidth / 2) + 'px';
     // ОТОБРАЖЕНИЕ МОДАЛЬНОГО ОКНА
+    if (window.matchMedia("(max-width: 694px)").matches){
+        document.getElementById(`mobile-close-modal-window`).style.display = 'block';
+    }
+    else{
+        document.getElementById('close-modal-window').style.display = 'flex';
+    }
     document.getElementById('backdrop').style.display = 'block';
     document.getElementById('checkout-modal-window').style.display = 'flex';
-    document.getElementById('close-modal-window').style.display = 'flex';
     document.getElementById('body').style.overflow = 'hidden';
+
     // ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО ПО КНОПКЕ
     document.getElementById('close-modal-window').addEventListener('click', function(){
-        document.getElementById('backdrop').style.display = 'none';
-        document.getElementById('checkout-modal-window').style.display = 'none';
-        document.getElementById('close-modal-window').style.display = 'none';
-        document.getElementById('body').style.overflow = 'visible';
-
-        document.getElementById('phone-number').value = '+375';
-        document.getElementById('email').value = '';
+        closeModalWindow();
+    });
+    document.getElementById('mobile-close-modal-window').addEventListener('click', function(){
+        closeModalWindow();
     });
 }
 
+// ЗАКРЫТЬ ОКНО С ПОЧТОИ И НОМЕРОМ ТЕЛЕФОНА ПОСЛЕ НАЖАТИЯ НА КНОПКУ ПОДТВЕРДИТЬ
 function acceptCheckout(){
-    let phoneNumber = document.getElementById('phone-number').value;
-        let email = document.getElementById('email').value;
-
-        if (!localStorage.getItem('orderData')) {
-            let orderData = {};
-            localStorage.setItem('orderData', JSON.stringify(orderData));
-        }
-
-        let order = JSON.parse(localStorage.getItem('orderData'));
-        order.email = email;
-        order.phone = phoneNumber;
-        order.list = [];
-
-        basketList.forEach(element => {
-            order.list.push(element);
-        });
-        console.log(order)
-
-        localStorage.setItem('orderData', JSON.stringify(order));
-
         document.getElementById('backdrop').style.display = 'none';
         document.getElementById('checkout-modal-window').style.display = 'none';
         document.getElementById('close-modal-window').style.display = 'none';
         document.getElementById('body').style.overflow = 'visible';
-
-        localStorage.removeItem('basketListData');
-        basketList = [];
         
         countTotalSum();        
         resetItems();

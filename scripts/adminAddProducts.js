@@ -209,7 +209,8 @@ let productPrice_1;
 let productPrice_2;
 let productWeight_1;
 let productWeight_2;
-// КНОПКА ПРИМЕНИТЬ
+
+// КНОПКА ПРИМЕНИТЬ ДЛЯ ПРЕДПРОСМОТРА
 document.getElementById('apply').addEventListener('click', function(){
     let selectedRadioElementCategory = document.getElementById('category-container').querySelector('input[name="category"]:checked');
     let selectedRadioCategory = selectedRadioElementCategory ? selectedRadioElementCategory.id : null;
@@ -255,30 +256,20 @@ document.getElementById('apply').addEventListener('click', function(){
         document.getElementById('preview-price-kg-1').innerText = (productPrice_1 / productWeight_1).toFixed(2);
         document.getElementById('preview-price-kg-2').innerText = (productPrice_2 / productWeight_2).toFixed(2);
     }
-});
 
-// КНОПКА ПОДТВЕРДИТЬ
-confirmButton.addEventListener('click', function(){
-    let dataBaseItem = {};
-    if (selectedRadioType == 'item'){
-        dataBaseItem.name = productName;
-        dataBaseItem.description = productDescription;
-        dataBaseItem.price = productPrice;
-        dataBaseItem.category = productCategory;
-        dataBaseItem.type = productType;
-
-        console.log(dataBaseItem)
-    }
-    else if (selectedRadioType == 'kilograms'){
-        dataBaseItem.name = productName;
-        dataBaseItem.description = productDescription;
-        dataBaseItem.price_1 = productPrice_1;
-        dataBaseItem.price_2 = productPrice_2;
-        dataBaseItem.weight_1 = productWeight_1;
-        dataBaseItem.weight_2 = productWeight_2;
-        dataBaseItem.category = productCategory;
-        dataBaseItem.type = productType;   
-
-        console.log(dataBaseItem)
-    }
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
+      
+        reader.onloadend = function () {
+          preview.src = reader.result;
+        }
+      
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = "";
+        }
+      }
 });
