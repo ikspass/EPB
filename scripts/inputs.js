@@ -19,7 +19,7 @@ for (var i = 0; i < inputs.length; i++) {
                 break;
             }
         }
-        if (!validateEmail(emailInput.value) || !/^\+375\d*$/.test(phoneNumberInput.value) || phoneNumberInput.value.length != 13) {
+        if (emailInput.value.length <= 15 || phoneNumberInput.value.length != 13) {
             allFilled = false;
         }
         button.disabled = !allFilled;
