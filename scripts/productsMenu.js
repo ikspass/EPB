@@ -236,7 +236,6 @@ function addItem(name, price, type){
     `
 }
 
-// В PREVIEWS НУЖНО ЗАСУНУТЬ ДАННЫЕ ИЗ БД!!!
 // JSON 
 fetch('./scripts/products.json')
 .then(response => response.json())
