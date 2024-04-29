@@ -30,7 +30,7 @@ function makeTimer(){
     },7000);
 }
 
-if (window.matchMedia("(min-width: 1200px) and (max-width: 1920px)").matches){
+if (window.matchMedia("(min-width: 1200px) and (max-width: 9000px)").matches){
      document.querySelector('#right-button').addEventListener('click', function(){
         offset += slideWidth;
         makeTimer();

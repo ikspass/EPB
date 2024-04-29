@@ -294,6 +294,10 @@ a.nav-item{
     display: block;
     border: 2px solid var(--accent);
 }
+.slider-buttons:hover{
+    cursor: pointer;
+    border: 2px solid var(--accent);
+}
 .slider-container{
     display: flex;
     gap: 40px;
