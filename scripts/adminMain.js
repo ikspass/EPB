@@ -2,7 +2,7 @@
 document.getElementById('header').innerHTML =
 `
 <a href="index.html" class="logo-container">
-        <img class="logo" src="styles/images/logo.jpeg" alt="logo">
+        <img class="logo" src="styles/images/logo.png" alt="logo">
     </a>
         <div class="navigation normal-text bold">
             <div class="desktop navigation-row">

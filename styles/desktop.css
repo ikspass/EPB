@@ -12,7 +12,7 @@
 :root{
     --black: #323232;
     --grey: #B7B7B7;
-    --accent: #FDA941;
+    --accent: #FFB59D;
     --backdrop: #A6A6A6;
     --white: #FFFFFF;
 }
@@ -444,7 +444,6 @@ a.nav-item{
     flex-direction: row;
     gap: 15px;
     align-items: center;
-    width: min-content;
 }
 
 a.instagram{
@@ -467,7 +466,7 @@ a.instagram{
 .square{
     width: 4px;
     height: 4px;
-    background: #FDA941;
+    background: var(--accent);
     border-radius: 10px;
 }
 
@@ -859,7 +858,7 @@ input[type=text]{
 	background: var(--white);
 }
 .form-radio input[type=radio]:checked + label:before {
-	background: url(./images/checked-radio.png) 0 0 no-repeat;
+	background: url(./images/Union.png) 0 0 no-repeat;
     background-position: center;
 }
 .form-radio label:hover {
@@ -945,7 +944,7 @@ label.normal-main-buttons{
 }
 
 .modal-form-radio input[type=radio]:checked ~ div label.modal-radio:before {
-	background: url(./images/checked-radio.png) 0 0 no-repeat;
+	background: url(./images/Union.png) 0 0 no-repeat;
     background-position: center;
 }
 
