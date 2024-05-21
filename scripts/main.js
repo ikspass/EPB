@@ -1,7 +1,7 @@
 // ОТОБРАЖЕНИЕ HEDER
 document.getElementById('header').innerHTML =
 `
-    <div class="modal-window-container">
+    <div class="header-modal-window-container" id="header-modal-window-container">
         <div class="header-modal-window-content" id="header-modal-window">
         </div>
         <button id="close-header-modal-window" class="close-modal-window" onclick="closeHeaderModalWindow()">
@@ -152,6 +152,7 @@ document.getElementById('contacts').innerHTML =
 function closeHeaderModalWindow(){
     document.getElementById('backdrop').style.display = 'none';
     document.getElementById('header-modal-window').style.display = 'none';
+    document.getElementById('header-modal-window-container').classList.remove("active")
     document.getElementById('close-header-modal-window').style.display = 'none';
     document.getElementById('body').style.overflow = 'visible';
 }
@@ -165,7 +166,8 @@ vacanciesLinks.forEach((element)=>{
             <div class="big-text">Вопросы по трудоустройству и сотрудничеству -</div>
             <div class="big-text accent">lepetitoven@gmail.com</div>
         `
-    
+        document.getElementById('header-modal-window-container').classList.add("active")
+
         document.getElementById('backdrop').style.display = 'block';
         document.getElementById('header-modal-window').style.display = 'flex';
         document.getElementById('body').style.overflow = 'hidden';
@@ -182,7 +184,8 @@ deliveryLinks.forEach((element)=>{
         `
             <div class="big-text">Возможность доставки, а также цену услуги уточняйте у оператора при оформлении заказа</div>
         `
-        
+        document.getElementById('header-modal-window-container').classList.add("active")
+
         document.getElementById('backdrop').style.display = 'block';
         document.getElementById('header-modal-window').style.display = 'flex';
         document.getElementById('body').style.overflow = 'hidden';

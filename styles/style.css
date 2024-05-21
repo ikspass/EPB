@@ -228,7 +228,7 @@ body{
     height: 150px;
 }
 .logo{
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 30px 30px;
     height: 100%;
 }
 .navigation{
@@ -444,6 +444,7 @@ a.nav-item{
     flex-direction: row;
     gap: 15px;
     align-items: center;
+    width: max-content;
 }
 
 a.instagram{
@@ -784,11 +785,24 @@ input[type=text]{
 }
 
 /* VACANCIES */
+.header-modal-window-container{
+    display: flex;
+    gap: 15px;
+    box-sizing: border-box;
+    position: absolute;
+    transition: 0.5s;
+    top: -50%;
+    right: 1vw;
+    z-index: 5;
+}
+.header-modal-window-container.active{
+    top: 0;
+}
 .header-modal-window-content{
     background: var(--white);
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     padding: 20px 70px;
-    display: none;
+    display: block;
     flex-shrink: 0;
     flex-direction: column;
     gap: 15px;
@@ -1021,3 +1035,260 @@ label.modal-radio:hover {
     width: 500px;
     gap: 20px;
 }
+
+/* TABLET */
+@media (max-width: 1200px){
+    .tablet{
+        visibility: visible;
+        position: static;
+    }
+    .desktop{
+        display: none;
+    }
+
+    /* MAIN PAGE */
+    .burger-container{
+        visibility: visible;
+    }
+    .logo-container{
+        height: 100px;
+    }
+
+    .content{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .slide-text{
+        width: 100%;
+    }
+    
+    .slide-image{
+        width: 100%;
+    }
+    .slider-container{
+        gap: 20px;
+    }
+
+    .bakery-menu-item-image{
+        width: 334px;
+        height: 324px;
+    }
+    .bakery-menu{
+        height: 100%;
+    }
+
+    /* PRODUCTS MENU */
+    .products-item{
+        width: 280px;
+    }
+
+    .products-item-image{
+        height: 200px;
+    }
+    .close-modal-window{
+        display: none;
+    }
+    
+
+    /* ADD TO BASKET */
+    .product-modal-window{
+        flex-direction: column;
+        width: 480px;
+        gap: 15px;
+    }
+    .modal-window-container{
+        flex-direction: column;
+    }
+
+    .product-modal-window-image{
+        width: 100%;
+        height: 330px;
+    }
+
+    /* BASKET */
+    .basket-item-image{
+        width: 220px;
+        height: 220px;
+    }
+
+    .basket-title-row{
+        justify-content: start;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .about-company-text{
+        width: 100%;
+    }
+    .contacts{
+        display: none;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 694px){
+    .big-text{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .mobile-normal-text,
+    .normal-text,
+    .small-text{
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    /* .bold{
+        font-weight: 400;
+    } */
+
+    body{
+        min-height: 100vh;
+    }
+    .heading{
+        font-size: 25px;
+        line-height: 29px;
+    }
+
+    .mobile{
+        visibility: visible;
+        position: static;
+    }
+
+    .desktop-tablet{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .desktop{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .normal-main-buttons{
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+
+    /* MAIN PAGE */
+    .main-page{
+        gap: 20px;
+    }
+
+    .line{
+        height: 2px;
+        width: 130px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .logo-container{
+        height: 70px;
+    }
+    
+    .slider-buttons{
+        display: none;
+    }
+
+    .slide-image{
+        height: 300px;
+    }
+    .bakery-menu-item{
+        width: 140px;
+    }
+    .bakery-menu-item-image{
+        width: 100%;
+        height: 160px;
+    }
+    .products-separator{
+        height: 1px;
+    }
+    .contacts-container{
+        justify-content: start;
+    }
+
+    .contacts{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contacts div{
+        width: 200px;
+        text-align: right;
+    }
+
+    /* PRODUCTS MENU */
+    .products-item{
+        width: 140px;
+    }
+
+    .products-item-image{
+        height: 160px;
+    }
+
+    .products-item-name{
+        margin: 10px 0 10px 0;
+    }
+
+    .products-separator{
+        margin: 10px 0 20px 0;
+    }
+
+    /* ADD TO BASKET */
+    .product-modal-window{
+        width: 290px;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .product-modal-window-description-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .product-modal-window-options{
+        gap: 20px;
+    }
+    .product-modal-window-image{
+        height: 220px;
+        width: 100%;
+    }
+
+    #show-modal-window{
+        display: none;
+    }
+    .quantity{
+        gap: 7px;
+    }
+
+    .quantity-tool{
+        width: 26px;
+        height: 26px;
+        border: 2px solid var(--grey);
+    }
+
+    .quantity-tool svg{
+        width: 9px;
+    }
+
+    .quantity-info{
+        width: 30px;
+        height: 26px;
+    }
+
+    /* BASKET */
+    .basket-item-info{
+        padding: 0 0 0 10px;
+    }
+
+    .basket-item-image{
+        width: 130px;
+        height: 130px;
+    }
+    .bakery-menu-item-name{
+        width: min-content;
+    }
+} 
